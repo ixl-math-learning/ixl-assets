@@ -94,6 +94,7 @@ function placeStickyFooter() {
 }
 
 window.AD = AD;
+window.bannerIframe = bannerIframe;
 window.placeBanner = placeBanner;
 window.loadGlobalAds = loadGlobalAds;
 window.placeSideRails = placeSideRails;

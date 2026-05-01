@@ -199,7 +199,12 @@ function showError(msg) {
 
 async function loadGame(g) {
   document.title = `${g.title} — Void Network Lite`;
-  document.getElementById('playTitle').textContent = g.title;
+  const titleEl = document.getElementById('playTitle');
+  const iconEl  = document.getElementById('cntIcon');
+  const urlEl   = document.getElementById('urlDisplay');
+  if (titleEl) titleEl.textContent = g.title;
+  if (iconEl && g.thumb) iconEl.src = g.thumb;
+  if (urlEl)   urlEl.textContent   = location.origin;
   pushRecent(g.id);
 
   // Adsterra popunder + social-bar scripts hijack the next document click,
@@ -208,10 +213,12 @@ async function loadGame(g) {
     window.__vnPopunderArmed = true;
     if (window.loadGlobalAds) window.loadGlobalAds();
   }
+  // Side 300x250 (scaled into the .sp-inner box)
+  mountSidePanelAd();
 
-  const iframe = document.getElementById('gameFrame');
+  const iframe  = document.getElementById('gameFrame');
   const loading = document.getElementById('loadingOverlay');
-  if (loading) loading.style.display = '';
+  if (loading) loading.classList.remove('hidden');
 
   if (currentBlobUrl) { URL.revokeObjectURL(currentBlobUrl); currentBlobUrl = null; }
 
@@ -222,21 +229,56 @@ async function loadGame(g) {
     const blob = new Blob([html], { type: 'text/html' });
     currentBlobUrl = URL.createObjectURL(blob);
     iframe.src = currentBlobUrl;
-    iframe.onload = () => { if (loading) loading.style.display = 'none'; };
-    setTimeout(() => { if (loading) loading.style.display = 'none'; }, 8000);
+    iframe.onload = () => { if (loading) loading.classList.add('hidden'); };
+    setTimeout(() => { if (loading) loading.classList.add('hidden'); }, 8000);
   } catch (e) {
-    if (loading) loading.style.display = 'none';
+    if (loading) loading.classList.add('hidden');
     showError('Network error: ' + e.message);
   }
 }
 
+function mountSidePanelAd() {
+  const inner = document.getElementById('spInner');
+  const container = document.getElementById('spContainer');
+  if (!inner || !container || inner.dataset.mounted === '1') {
+    if (container) scaleSidePanel();
+    return;
+  }
+  inner.dataset.mounted = '1';
+  // 300x250 banner from ad-codes.txt — isolated in an iframe srcdoc
+  if (window.bannerIframe) {
+    const f = window.bannerIframe('300x250');
+    if (f) {
+      f.style.width  = '300px';
+      f.style.height = '250px';
+      inner.appendChild(f);
+    }
+  }
+  scaleSidePanel();
+  if (!window.__vnSpResizeWired) {
+    window.__vnSpResizeWired = true;
+    window.addEventListener('resize', scaleSidePanel);
+  }
+}
+function scaleSidePanel() {
+  const inner = document.getElementById('spInner');
+  const container = document.getElementById('spContainer');
+  if (!inner || !container) return;
+  const s = container.clientWidth / 300;
+  inner.style.transform = 'scale(' + s + ')';
+}
+
 document.addEventListener('click', (e) => {
-  const t = e.target;
-  if (t.id === 'fullscreenBtn') {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  if (btn.id === 'fullscreenBtn') {
+    const c = document.getElementById('embedContainer');
+    if (c.requestFullscreen) c.requestFullscreen();
+    else if (c.webkitRequestFullscreen) c.webkitRequestFullscreen();
+  } else if (btn.id === 'refreshBtn') {
     const f = document.getElementById('gameFrame');
-    if (f.requestFullscreen) f.requestFullscreen();
-    else if (f.webkitRequestFullscreen) f.webkitRequestFullscreen();
-  } else if (t.id === 'newTabBtn') {
+    if (f && f.src) { const cur = f.src; f.src = 'about:blank'; setTimeout(() => { f.src = cur; }, 50); }
+  } else if (btn.id === 'newTabBtn') {
     const cloak = `<!doctype html><html><head><title>Google Classroom</title>
       <link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png">
       <style>html,body{margin:0;height:100%;background:#000}iframe{border:0;width:100%;height:100%}</style>

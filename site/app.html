@@ -67,21 +67,51 @@
   <div id="content"></div>
 </main>
 
-<section id="viewPlay" class="view play-shell" hidden>
-  <div class="play-bar">
-    <a class="back" href="#/"><span style="font-size:.95rem">←</span> Back</a>
-    <div id="playTitle" class="title">Loading…</div>
-    <div class="actions">
-      <button id="fullscreenBtn" class="action-btn" type="button">Fullscreen</button>
-      <button id="newTabBtn" class="action-btn" type="button">Open Cloaked</button>
+<section id="viewPlay" class="view" hidden>
+  <a href="#/" class="vn-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <span>Back to Games</span>
+  </a>
+  <div class="embed-container" id="embedContainer">
+    <div class="frame-wrap">
+      <iframe id="gameFrame" allow="accelerometer; autoplay; gamepad; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; pointer-lock; xr-spatial-tracking" allowfullscreen webkitallowfullscreen tabindex="0"></iframe>
+      <div class="game-loading-overlay" id="loadingOverlay">
+        <div class="loading-overlay-ui">
+          <div class="void-loader">
+            <svg class="loader-svg2" viewBox="0 0 100 100">
+              <circle class="loader-arc-track2" cx="50" cy="50" r="48"/>
+              <circle class="loader-arc-outer" cx="50" cy="50" r="48"/>
+            </svg>
+            <svg class="loader-svg" viewBox="0 0 100 100">
+              <circle class="loader-arc-track" cx="50" cy="50" r="48"/>
+              <circle class="loader-arc-main" cx="50" cy="50" r="48"/>
+            </svg>
+            <div class="loader-inner-ring"></div>
+            <div class="loader-logo-wrap">
+              <img class="loader-logo" src="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/img/logo.png" alt="">
+            </div>
+          </div>
+          <div class="loading-status">Loading game…</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-div">
+      <img class="game-icon" id="cntIcon" src="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/img/logo.png" alt="">
+      <div class="text-container">
+        <div class="website-name" id="playTitle">Loading…</div>
+        <div class="developer-name">Void Network Lite</div>
+      </div>
+      <div class="url-display" id="urlDisplay"></div>
+      <div class="buttons-container">
+        <button class="control-btn" id="refreshBtn" title="Refresh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></button>
+        <button class="control-btn" id="newTabBtn" title="Open Cloaked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></button>
+        <button class="control-btn" id="fullscreenBtn" title="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
+      </div>
     </div>
   </div>
-  <div class="play-frame-wrap">
-    <div id="loadingOverlay" class="play-loading">
-      <div class="spinner"></div>
-      <div>Loading game…</div>
-    </div>
-    <iframe id="gameFrame" allow="autoplay; fullscreen; gamepad; clipboard-read; clipboard-write; pointer-lock; xr-spatial-tracking; accelerometer; gyroscope" allowfullscreen></iframe>
+  <div class="sp-container" id="spContainer">
+    <span class="sp-label">advertisement</span>
+    <div class="sp-inner" id="spInner"></div>
   </div>
 </section>
 
