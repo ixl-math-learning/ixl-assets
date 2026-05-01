@@ -202,6 +202,13 @@ async function loadGame(g) {
   document.getElementById('playTitle').textContent = g.title;
   pushRecent(g.id);
 
+  // Adsterra popunder + social-bar scripts hijack the next document click,
+  // so we only arm them when a game is actually launched, and only once per session.
+  if (!window.__vnPopunderArmed) {
+    window.__vnPopunderArmed = true;
+    if (window.loadGlobalAds) window.loadGlobalAds();
+  }
+
   const iframe = document.getElementById('gameFrame');
   const loading = document.getElementById('loadingOverlay');
   if (loading) loading.style.display = '';
@@ -327,7 +334,9 @@ async function init() {
   renderBrowse();
   route();
 
-  if (window.loadGlobalAds) window.loadGlobalAds();
+  // NOTE: don't auto-load loadGlobalAds() here — popunder/social-bar
+  // scripts hijack the very next click. They're armed inside loadGame()
+  // instead, so the click-jack only happens after a game is launched.
   if (window.placeStickyFooter) window.placeStickyFooter();
   if (window.placeSideRails) window.placeSideRails();
 
