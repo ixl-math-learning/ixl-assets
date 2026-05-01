@@ -274,6 +274,11 @@
       var r = await fetch(g.jsdelivrUrl + '?cb=' + Date.now());
       if (!r.ok) throw new Error('HTTP ' + r.status);
       var html = await r.text();
+      if (g.cdnBase && !/<base[\s>]/i.test(html)) {
+        var baseTag = '<base href="' + g.cdnBase + '">';
+        if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
+        else html = baseTag + html;
+      }
       iframe.removeAttribute('src');
       iframe.srcdoc = html;
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
