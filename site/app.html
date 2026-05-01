@@ -23,12 +23,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Theme + layout, served from jsDelivr -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/assets/css/matte-theme.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/assets/css/site.css">
 
-<!-- Google Analytics (carried over from Voidv5) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-814Y2X3KSF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -37,14 +34,11 @@
   gtag('config', 'G-814Y2X3KSF');
 </script>
 
-<script>
-  // jsDelivr base for everything else this page needs
-  window.VNL_CDN = 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site';
-</script>
+<script>window.VNL_CDN = 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site';</script>
 </head>
 <body>
 
-<header class="site-header" id="siteHeader">
+<header class="site-header">
   <a class="brand" href="#/">
     <img src="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/img/logo.png" alt="">
     <span>Void Network Lite</span>
@@ -61,8 +55,10 @@
 </header>
 
 <main id="viewBrowse" class="view page">
+  <div class="ad-banner-top">
+    <iframe scrolling="no" frameborder="0" width="728" height="90" style="border:0;display:block" loading="lazy" srcdoc="<!doctype html><html><head><style>html,body{margin:0;background:transparent;overflow:hidden}</style></head><body><script>atOptions={'key':'bb49d3eb30b6f59a5b1d34cff5e4678a','format':'iframe','height':90,'width':728,'params':{}};&lt;/script><script src='https://www.highperformanceformat.com/bb49d3eb30b6f59a5b1d34cff5e4678a/invoke.js'>&lt;/script></body></html>"></iframe>
+  </div>
   <h1>Browse games</h1>
-  <div id="aboveFold"></div>
   <div id="catBar" class="cat-bar"></div>
   <div id="content"></div>
 </main>
@@ -109,57 +105,69 @@
       </div>
     </div>
   </div>
-  <div class="sp-container" id="spContainer">
+
+  <div class="sp-container">
     <span class="sp-label">advertisement</span>
-    <div class="sp-inner" id="spInner"></div>
+    <div class="sp-inner" id="spInner">
+      <iframe scrolling="no" frameborder="0" width="300" height="250" style="border:0;display:block" srcdoc="<!doctype html><html><head><style>html,body{margin:0;background:transparent;overflow:hidden}</style></head><body><script>atOptions={'key':'9761ebbef2d249e513184c2ab69ef7f7','format':'iframe','height':250,'width':300,'params':{}};&lt;/script><script src='https://www.highperformanceformat.com/9761ebbef2d249e513184c2ab69ef7f7/invoke.js'>&lt;/script></body></html>"></iframe>
+    </div>
+  </div>
+
+  <div class="tower-container">
+    <span class="sp-label">advertisement</span>
+    <div class="tower-inner">
+      <iframe scrolling="no" frameborder="0" width="160" height="600" style="border:0;display:block" srcdoc="<!doctype html><html><head><style>html,body{margin:0;background:transparent;overflow:hidden}</style></head><body><script>atOptions={'key':'2ac1c6c752977adc4b48460d3431a849','format':'iframe','height':600,'width':160,'params':{}};&lt;/script><script src='https://www.highperformanceformat.com/2ac1c6c752977adc4b48460d3431a849/invoke.js'>&lt;/script></body></html>"></iframe>
+    </div>
   </div>
 </section>
 
 <main id="viewAbout" class="view page static-content" hidden>
   <h1>About</h1>
-  <p><strong>Void Network Lite</strong> is a fully static fork of Void Network. There's no login, no account, no server-side anything. Just games.</p>
+  <p><strong>Void Network Lite</strong> is the static, no-account build of Void Network. No logins, no proxies, no PRO tier. Open the page, pick a game, play.</p>
   <h2>How it works</h2>
-  <p>This is a single HTML file. Every other file it needs — theme, scripts, images, the game manifest, and the games themselves — is loaded from <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a>, a free CDN that serves files from public GitHub repos. There's no backend.</p>
-  <h2>What changed from the full Void Network</h2>
+  <p>Every game on the site is loaded from <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a>, which serves files straight off public GitHub repos. Nothing here runs on a server we own.</p>
+  <h2>What's missing on purpose</h2>
   <ul>
-    <li>Removed accounts, login, and PRO tier — this build has no users.</li>
-    <li>Removed the proxy / unblocker stack (epoxy, scramjet, BYOD).</li>
-    <li>Removed Discord-link generators and chat features.</li>
-    <li>Kept search, category filter, recently-played, and favorites — all stored locally in your browser.</li>
+    <li>Accounts, login, PRO tier — none of it. There's no user state.</li>
+    <li>Proxy / unblocker stack — gone. Play games, that's it.</li>
+    <li>Discord-link generators, chat, BYOD domains — gone.</li>
+    <li>Search, category filter, recently-played, favorites — kept, but local to your browser.</li>
   </ul>
 </main>
 
 <main id="viewDmca" class="view page static-content" hidden>
   <h1>DMCA Takedown Policy</h1>
-  <p>Void Network Lite respects the intellectual property rights of others. If you believe content hosted via this site infringes on your copyright, please send a complete DMCA notice with all of the following:</p>
+  <p>If you own the rights to something hosted via this site and you want it taken down, send a notice that includes:</p>
   <ul>
-    <li>Identification of the copyrighted work claimed to be infringed.</li>
-    <li>Identification of the specific game URL on this site (e.g. <code>#/play/42</code>).</li>
-    <li>Your full name, address, telephone number, and email.</li>
-    <li>A statement that you have a good-faith belief that the use is not authorized by the copyright owner.</li>
-    <li>A statement, under penalty of perjury, that the information in the notice is accurate and that you are authorized to act on behalf of the owner.</li>
-    <li>Your physical or electronic signature.</li>
+    <li>The work you claim is being infringed.</li>
+    <li>The specific URL on this site (for example <code>#/play/42</code>).</li>
+    <li>Your name, address, phone, email.</li>
+    <li>A good-faith statement that the use isn't authorized.</li>
+    <li>A statement under penalty of perjury that the notice is accurate and that you're authorized to act for the rights holder.</li>
+    <li>Your signature.</li>
   </ul>
-  <h2>Where to send notices</h2>
-  <p>Email DMCA notices to the contact address listed in the source repository's README.</p>
-  <h2>Repeat infringers</h2>
-  <p>It is our policy to disable access to material that is the subject of a valid DMCA notice and to remove repeat infringers' submissions.</p>
+  <h2>Where to send it</h2>
+  <p>The contact address is in the README of the source repository.</p>
+  <h2>Repeat offenders</h2>
+  <p>Repeat infringers' submissions are removed.</p>
+  <h2>Counter-notice</h2>
+  <p>If you think a takedown was wrong, you can submit a counter-notice with the same identifying info plus a statement consenting to jurisdiction.</p>
 </main>
 
 <main id="viewPrivacy" class="view page static-content" hidden>
   <h1>Privacy</h1>
-  <p>Void Network Lite is a static site. We don't run a backend, we don't have user accounts, and we don't ask for any personal information.</p>
+  <p>This is a static site. There's no backend, no accounts, and no personal info collected by us.</p>
   <h2>Local storage</h2>
-  <p>Your browser stores your favorites, recently-played games, and preferred category locally under <code>localStorage</code>. This data never leaves your device.</p>
+  <p>Favorites, recently-played, and your category choice live in <code>localStorage</code>. They never leave your device. Clear them from your browser settings whenever.</p>
   <h2>Analytics</h2>
-  <p>The site loads <strong>Google Analytics 4</strong> to count anonymous page views. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a> for details.</p>
-  <h2>Advertising</h2>
-  <p>Banners and pop ads are served by Adsterra family networks (<code>highperformanceformat.com</code>, <code>profitablecpmratenetwork.com</code>).</p>
+  <p>Google Analytics 4 is loaded for anonymous traffic counts. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>. Block it in your browser if you'd rather not be counted.</p>
+  <h2>Ads</h2>
+  <p>Banners and pop ads are served by Adsterra (<code>highperformanceformat.com</code>, <code>profitablecpmratenetwork.com</code>). They use cookies / similar tech.</p>
   <h2>Game content</h2>
-  <p>Games are loaded from <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a> and may make their own network requests.</p>
+  <p>Games stream through <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a> and may make their own network calls.</p>
 </main>
 
-<footer class="site-footer" id="siteFooter">
+<footer class="site-footer">
   <div>
     <a href="#/about">About</a> ·
     <a href="#/dmca">DMCA</a> ·
@@ -168,8 +176,6 @@
   <div style="margin-top:.5rem">© Void Network Lite</div>
 </footer>
 
-<!-- App scripts, served from jsDelivr -->
-<script src="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/assets/js/ads.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/assets/js/site.js"></script>
 </body>
 </html>
