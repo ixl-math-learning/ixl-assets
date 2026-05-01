@@ -278,7 +278,7 @@
     }
   });
 
-  var VS = ['Browse', 'Play', 'About', 'Dmca', 'Privacy'];
+  var VS = ['Browse', 'Play', 'Dmca', 'Privacy'];
   function show(name) {
     VS.forEach(function (v) { var el = document.getElementById('view' + v); if (el) el.hidden = (v !== name); });
     document.querySelectorAll('header nav a').forEach(function (a) { a.classList.remove('active'); });
@@ -302,7 +302,6 @@
       show('Play'); setMode('play'); loadGame(g); return;
     }
     setMode('browse');
-    if (h.indexOf('#/about')   === 0) { show('About');   document.title = 'About — Void Network Lite';   return; }
     if (h.indexOf('#/dmca')    === 0) { show('Dmca');    document.title = 'DMCA — Void Network Lite';    return; }
     if (h.indexOf('#/privacy') === 0) { show('Privacy'); document.title = 'Privacy — Void Network Lite'; return; }
     show('Browse');

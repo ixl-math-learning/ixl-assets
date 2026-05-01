@@ -45,7 +45,6 @@
   </a>
   <nav>
     <a href="#/" data-route="home">Games</a>
-    <a href="#/about" data-route="about">About</a>
     <a href="#/dmca" data-route="dmca">DMCA</a>
     <a href="#/privacy" data-route="privacy">Privacy</a>
   </nav>
@@ -121,55 +120,73 @@
   </div>
 </section>
 
-<main id="viewAbout" class="view page static-content" hidden>
-  <h1>About</h1>
-  <p><strong>Void Network Lite</strong> is the static, no-account build of Void Network. No logins, no proxies, no PRO tier. Open the page, pick a game, play.</p>
-  <h2>How it works</h2>
-  <p>Every game on the site is loaded from <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a>, which serves files straight off public GitHub repos. Nothing here runs on a server we own.</p>
-  <h2>What's missing on purpose</h2>
-  <ul>
-    <li>Accounts, login, PRO tier — none of it. There's no user state.</li>
-    <li>Proxy / unblocker stack — gone. Play games, that's it.</li>
-    <li>Discord-link generators, chat, BYOD domains — gone.</li>
-    <li>Search, category filter, recently-played, favorites — kept, but local to your browser.</li>
-  </ul>
-</main>
-
 <main id="viewDmca" class="view page static-content" hidden>
-  <h1>DMCA Takedown Policy</h1>
-  <p>If you own the rights to something hosted via this site and you want it taken down, send a notice that includes:</p>
-  <ul>
-    <li>The work you claim is being infringed.</li>
-    <li>The specific URL on this site (for example <code>#/play/42</code>).</li>
-    <li>Your name, address, phone, email.</li>
-    <li>A good-faith statement that the use isn't authorized.</li>
-    <li>A statement under penalty of perjury that the notice is accurate and that you're authorized to act for the rights holder.</li>
+  <h1>DMCA Policy</h1>
+  <p>Void Network ("we," "us," "our") respects intellectual property rights and complies with the Digital Millennium Copyright Act (17 U.S.C. §512). We respond to properly formatted notices by removing or disabling access to allegedly infringing material and may terminate repeat infringers.</p>
+  <h2>How to Send a Takedown Notice</h2>
+  <p>Email <strong>void@voidnetwork.space</strong> with the following (per §512(c)(3)):</p>
+  <ol>
+    <li>Your physical or electronic signature.</li>
+    <li>Identification of the copyrighted work claimed to be infringed (or a representative list).</li>
+    <li>Identification of the material to be removed or disabled, including exact Void Network URL(s) and, if applicable, the original source URL(s) when content is proxied.</li>
+    <li>Your contact information (name, address, phone, and email).</li>
+    <li>Statements that:
+      <ul>
+        <li>You have a good-faith belief the use is not authorized by the copyright owner, its agent, or the law; and</li>
+        <li>The information in the notice is accurate, and under penalty of perjury, you are the copyright owner or authorized to act on the owner's behalf.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>Incomplete notices may be rejected.</p>
+  <h2>Our Response</h2>
+  <p>Upon receiving a compliant notice, we may promptly remove or disable access to the identified material, block proxied access, de-list links, and notify the affected user (if identifiable). We log actions to enforce our repeat-infringer policy.</p>
+  <h2>Counter-Notification</h2>
+  <p>If you believe material was removed due to mistake or misidentification, email <strong>void@voidnetwork.space</strong> with:</p>
+  <ol>
     <li>Your signature.</li>
-  </ul>
-  <h2>Where to send it</h2>
-  <p>The contact address is in the README of the source repository.</p>
-  <h2>Repeat offenders</h2>
-  <p>Repeat infringers' submissions are removed.</p>
-  <h2>Counter-notice</h2>
-  <p>If you think a takedown was wrong, you can submit a counter-notice with the same identifying info plus a statement consenting to jurisdiction.</p>
+    <li>The material removed or disabled and its prior location (specific URL).</li>
+    <li>A statement under penalty of perjury that you have a good-faith belief the material was removed or disabled due to mistake or misidentification.</li>
+    <li>Your name, address, phone number, and a statement that you consent to the jurisdiction of the Federal District Court for your judicial district (or any district where you can be found if outside the U.S.) and that you will accept service of process from the original complainant.</li>
+  </ol>
+  <p>We may restore access in 10–14 business days unless we receive notice that the complainant has filed a court action.</p>
+  <h2>Repeat Infringers</h2>
+  <p>We may suspend or terminate users determined to be repeat infringers and will reasonably implement this policy.</p>
+  <h2>Standard Technical Measures</h2>
+  <p>We accommodate standard technical measures used by copyright owners consistent with §512(i).</p>
+  <h2>Third-Party/Proxied Content</h2>
+  <p>Void Network may proxy or frame games hosted on third-party websites and may also host locally cached copies. For proxied items, including the original source URL(s) in your notice helps us disable access through our service efficiently.</p>
+  <h2>Subpoenas &amp; Preservation</h2>
+  <p>We may preserve information as required by law and comply with valid subpoenas or court orders.</p>
+  <h2>Misrepresentation</h2>
+  <p>Under §512(f), anyone who knowingly misrepresents that material or activity is infringing—or that material was removed by mistake—may be liable for damages, including costs and attorneys' fees.</p>
+  <p style="opacity:.5;font-size:.85rem;margin-top:2rem">Last updated: October 21, 2025</p>
 </main>
 
 <main id="viewPrivacy" class="view page static-content" hidden>
-  <h1>Privacy</h1>
-  <p>This is a static site. There's no backend, no accounts, and no personal info collected by us.</p>
-  <h2>Local storage</h2>
-  <p>Favorites, recently-played, and your category choice live in <code>localStorage</code>. They never leave your device. Clear them from your browser settings whenever.</p>
-  <h2>Analytics</h2>
-  <p>Google Analytics 4 is loaded for anonymous traffic counts. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>. Block it in your browser if you'd rather not be counted.</p>
-  <h2>Ads</h2>
-  <p>Banners and pop ads are served by Adsterra (<code>highperformanceformat.com</code>, <code>profitablecpmratenetwork.com</code>). They use cookies / similar tech.</p>
-  <h2>Game content</h2>
-  <p>Games stream through <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a> and may make their own network calls.</p>
+  <h1>Privacy Policy</h1>
+  <h2>Information We Collect</h2>
+  <p>Void Network V5 collects certain information to provide you with the best possible service. We collect <strong>usage analytics</strong> through Google Analytics to understand how our platform is used, including page views, session duration, and general location data. We also collect <strong>technical information</strong> such as your browser type, device information, and IP address for security and optimization purposes.</p>
+  <h2>Cookies and Local Storage</h2>
+  <p>Our website uses cookies and local storage to enhance your experience. We use <strong>functional cookies</strong> to remember your preferences and settings, <strong>analytics cookies</strong> from Google Analytics to track website performance, and <strong>advertising cookies</strong> from our advertising partners to show relevant advertisements. You can control cookie settings through your browser preferences.</p>
+  <h2>Third-Party Services</h2>
+  <p>Void Network V5 partners with several third-party services to provide functionality and support our platform. These include <strong>Google Analytics</strong> for website analytics, <strong>Google AdSense</strong> for advertising services, and various <strong>advertising networks</strong> to display relevant ads. These services may collect information according to their own privacy policies.</p>
+  <h2>Data Usage and Sharing</h2>
+  <p>We use collected data to improve our services, ensure platform security, and provide personalized experiences. We <strong>do not sell</strong> your personal information to third parties. Data may be shared with our trusted partners and service providers only as necessary to operate our platform, and always in accordance with applicable privacy laws.</p>
+  <h2>Data Security</h2>
+  <p>We implement industry-standard security measures to protect your information, including <strong>HTTPS encryption</strong> for all data transmission, secure servers, and regular security audits. While we strive to protect your information, no method of transmission over the internet is 100% secure.</p>
+  <h2>Your Rights and Choices</h2>
+  <p>You have the right to <strong>access, modify, or delete</strong> your personal information. You can opt out of analytics tracking by using browser extensions or adjusting your browser settings. For advertising preferences, you can use the opt-out tools provided by our advertising partners or adjust your browser's cookie settings.</p>
+  <h2>Children's Privacy</h2>
+  <p>Void Network V5 is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately so we can delete it.</p>
+  <h2>Updates to This Policy</h2>
+  <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. We will notify users of significant changes by posting the updated policy on our website. Your continued use of Void Network V5 after any changes constitutes acceptance of the updated policy.</p>
+  <h2>Contact Us</h2>
+  <p>If you have any questions about this privacy policy or our data practices, please contact us through the contact methods available on our website. We are committed to addressing your concerns and maintaining transparency about our data practices.</p>
+  <p style="opacity:.5;font-size:.85rem;margin-top:2rem">Last updated: August 31, 2025</p>
 </main>
 
 <footer class="site-footer">
   <div>
-    <a href="#/about">About</a> ·
     <a href="#/dmca">DMCA</a> ·
     <a href="#/privacy">Privacy</a>
   </div>
