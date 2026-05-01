@@ -300,8 +300,9 @@ window.addEventListener('hashchange', route);
 // ---------- Init ----------
 
 async function init() {
+  const manifestUrl = (window.VNL_CDN || '.') + '/games.json';
   try {
-    const res = await fetch('games.json');
+    const res = await fetch(manifestUrl);
     GAMES = await res.json();
   } catch (e) {
     document.getElementById('content').innerHTML =
