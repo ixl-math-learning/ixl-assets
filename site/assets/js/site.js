@@ -181,7 +181,7 @@
     popArmed = true;
     var s1 = document.createElement('script');
     s1.async = true;
-    s1.src = 'https://pl29120638.profitablecpmratenetwork.com/8f/fd/51/8ffd5148e5028e9b0ee3262230fa41fe.js';
+    s1.src = 'https://researchingsweatexit.com/1f/d8/42/1fd842e6dd4ea983a8427ab669c19fb1.js';
     document.head.appendChild(s1);
     var s2 = document.createElement('script');
     s2.async = true;
