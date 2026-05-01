@@ -214,12 +214,42 @@
     var sp = document.querySelector('.sp-container');
     var spi = document.getElementById('spInner');
     if (sp && spi) spi.style.transform = 'scale(' + (sp.clientWidth / 300) + ')';
-    var tw = document.querySelector('.tower-container');
-    var twi = document.querySelector('.tower-inner');
-    if (tw && twi) {
-      var s = Math.min(tw.clientWidth / 160, tw.clientHeight / 600);
-      twi.style.transform = 'scale(' + s + ')';
+  }
+
+  function pickRelated(currentId) {
+    var pool = GAMES.filter(function (g) { return g.id !== currentId && g.thumb; });
+    var out = [];
+    var seen = {};
+    while (out.length < 3 && pool.length) {
+      var i = (Math.random() * pool.length) | 0;
+      var g = pool[i];
+      if (!seen[g.id]) { seen[g.id] = 1; out.push(g); }
+      pool.splice(i, 1);
     }
+    return out;
+  }
+  function fillRelated(currentId) {
+    var gallery = document.getElementById('imageGallery');
+    if (!gallery) return;
+    var picks = pickRelated(currentId);
+    if (picks.length < 3) { gallery.classList.remove('visible'); return; }
+    var big = document.getElementById('bigGame');
+    var bigImg = document.getElementById('bigGameImg');
+    var bigTitle = document.getElementById('bigTitle');
+    big.href = '#/play/' + picks[0].id;
+    bigImg.src = picks[0].thumb;
+    bigImg.alt = picks[0].title;
+    bigTitle.textContent = picks[0].title;
+    [['smallGame1','smallGame1Img','smTitle1',picks[1]],['smallGame2','smallGame2Img','smTitle2',picks[2]]].forEach(function (p) {
+      var a = document.getElementById(p[0]);
+      var im = document.getElementById(p[1]);
+      var ti = document.getElementById(p[2]);
+      a.href = '#/play/' + p[3].id;
+      im.src = p[3].thumb;
+      im.alt = p[3].title;
+      ti.textContent = p[3].title;
+    });
+    gallery.classList.add('visible');
   }
 
   async function loadGame(g) {
@@ -233,6 +263,7 @@
     pushRecent(g.id);
     armPopunder();
     scaleSidePanels();
+    fillRelated(g.id);
 
     var iframe = document.getElementById('gameFrame');
     var loading = document.getElementById('loadingOverlay');
@@ -243,9 +274,8 @@
       var r = await fetch(g.jsdelivrUrl + '?cb=' + Date.now());
       if (!r.ok) throw new Error('HTTP ' + r.status);
       var html = await r.text();
-      var blob = new Blob([html], { type: 'text/html' });
-      blobUrl = URL.createObjectURL(blob);
-      iframe.src = blobUrl;
+      iframe.removeAttribute('src');
+      iframe.srcdoc = html;
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
       setTimeout(function () { if (loading) loading.classList.add('hidden'); }, 8000);
     } catch (e) {
@@ -259,22 +289,16 @@
     if (!b) return;
     if (b.id === 'fullscreenBtn') {
       var c = document.getElementById('embedContainer');
-      if (c.requestFullscreen) c.requestFullscreen();
-      else if (c.webkitRequestFullscreen) c.webkitRequestFullscreen();
+      var p = c.requestFullscreen ? c.requestFullscreen() :
+              c.webkitRequestFullscreen ? c.webkitRequestFullscreen() :
+              c.mozRequestFullScreen ? c.mozRequestFullScreen() :
+              c.msRequestFullscreen ? c.msRequestFullscreen() : null;
+      if (p && p.catch) p.catch(function () {});
     } else if (b.id === 'refreshBtn') {
       var f = document.getElementById('gameFrame');
-      if (f && f.src) { var cur = f.src; f.src = 'about:blank'; setTimeout(function () { f.src = cur; }, 50); }
-    } else if (b.id === 'newTabBtn') {
-      var w = window.open('about:blank');
-      if (!w) return;
-      w.document.open();
-      w.document.write(
-        '<!doctype html><html><head><title>Google Classroom</title>' +
-        '<link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png">' +
-        '<style>html,body{margin:0;height:100%;background:#000}iframe{border:0;width:100%;height:100%}</style>' +
-        '</head><body><iframe src="' + location.href + '"></iframe></body></html>'
-      );
-      w.document.close();
+      var doc = f.getAttribute('srcdoc');
+      if (doc) { f.removeAttribute('srcdoc'); setTimeout(function () { f.srcdoc = doc; }, 50); }
+      else if (f.src) { var cur = f.src; f.src = 'about:blank'; setTimeout(function () { f.src = cur; }, 50); }
     }
   });
 
@@ -306,12 +330,11 @@
     if (h.indexOf('#/privacy') === 0) { show('Privacy'); document.title = 'Privacy — Void Network Lite'; return; }
     show('Browse');
     document.title = 'Void Network Lite — Free Browser Games';
-    if (blobUrl) {
-      var fr = document.getElementById('gameFrame');
-      if (fr) fr.src = 'about:blank';
-      URL.revokeObjectURL(blobUrl);
-      blobUrl = null;
-    }
+    var fr = document.getElementById('gameFrame');
+    if (fr) { fr.removeAttribute('srcdoc'); fr.src = 'about:blank'; }
+    if (blobUrl) { URL.revokeObjectURL(blobUrl); blobUrl = null; }
+    var gallery = document.getElementById('imageGallery');
+    if (gallery) gallery.classList.remove('visible');
   }
   window.addEventListener('hashchange', route);
   window.addEventListener('resize', scaleSidePanels);

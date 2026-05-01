@@ -82,9 +82,18 @@ body.mode-play .ad-side-rail{display:none}
 .sp-inner{width:300px;height:250px;transform-origin:top left;flex-shrink:0;position:absolute;top:0;left:0}
 .sp-label{position:absolute;top:.521vw;right:.781vw;font-size:.521vw;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.026vw;font-weight:600;z-index:1}
 
-.tower-container{width:10vw;height:33vw;background-color:rgba(20,20,20,.8);border-radius:.521vw;position:absolute;border:.104vw solid rgba(255,255,255,.15);display:flex;justify-content:center;align-items:center;right:1vw;top:5.208vw;overflow:hidden;z-index:2}
-.tower-inner{width:160px;height:600px;transform-origin:top left;flex-shrink:0;position:absolute;top:0;left:0}
-@media (max-width:1500px){.tower-container{display:none}}
+.image-gallery{display:none;position:absolute;left:65vw;top:24.5vw;align-items:flex-start;gap:1vw;z-index:2}
+.image-gallery.visible{display:flex}
+.big-image-container{width:14vw;height:14vw;border-radius:.521vw;overflow:hidden;cursor:pointer;transition:all .35s ease;position:relative;display:block}
+.big-image-container:hover{transform:scale(1.03);filter:brightness(.7)}
+.big-image-container img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1a1a}
+.small-images{display:flex;flex-direction:column;gap:1vw}
+.small-image-container{width:6.3vw;height:6.3vw;border-radius:.521vw;overflow:hidden;cursor:pointer;transition:all .35s ease;position:relative;display:block}
+.small-image-container:hover{transform:scale(1.06);filter:brightness(.7)}
+.small-image-container img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1a1a}
+.game-overlay{position:absolute;bottom:0;left:0;right:0;padding:.521vw;background:linear-gradient(transparent,rgba(0,0,0,.85));opacity:0;transition:opacity .2s ease}
+.big-image-container:hover .game-overlay,.small-image-container:hover .game-overlay{opacity:1}
+.game-overlay span{font-size:.729vw;font-weight:600;color:#fff;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .game-loading-overlay{position:absolute;inset:0;z-index:15;background:#000;transition:opacity .3s ease;overflow:hidden}
 .game-loading-overlay.hidden{opacity:0;pointer-events:none;visibility:hidden}
@@ -147,7 +156,7 @@ body.mode-play .ad-side-rail{display:none}
   .buttons-container{gap:6px !important;flex-shrink:0}
   .control-btn{width:36px;height:36px;min-width:36px;border-radius:8px;-webkit-tap-highlight-color:transparent}
   .control-btn svg{width:18px;height:18px}
-  .sp-container,.tower-container{display:none !important}
+  .sp-container,.image-gallery,.image-gallery.visible{display:none !important}
   .void-loader{width:80px;height:80px;margin-bottom:16px}
   .loader-svg{inset:-6px;width:calc(100% + 12px);height:calc(100% + 12px)}
   .loader-svg2{inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px)}
@@ -172,5 +181,10 @@ body.mode-play .ad-side-rail{display:none}
   .control-btn{width:37px;height:37px;border-radius:5.6px}
   .control-btn svg{width:19px;height:19px}
   .sp-container{width:324px;left:1170px;top:94px;border-radius:9px}
-  .tower-container{right:18px;top:94px;border-radius:9px;width:180px;height:594px}
+  .image-gallery,.image-gallery.visible{left:1170px;top:441px;gap:18px}
+  .big-image-container{width:252px;height:252px;border-radius:9px}
+  .small-image-container{width:113px;height:113px;border-radius:9px}
+  .small-images{gap:18px}
+  .game-overlay span{font-size:13px}
+  .game-overlay{padding:9px}
 }
