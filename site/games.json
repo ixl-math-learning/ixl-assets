@@ -899,7 +899,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/66.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/66.html",
-    "author": "RHM Interactive O\u00dc",
+    "author": "RHM Interactive OÜ",
     "authorLink": "https://play.google.com/store/apps/dev?id=9182049342574405049&hl=en_US"
   },
   {
@@ -1328,7 +1328,7 @@
     ],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-004@main/c/95.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/95.html",
-    "author": "Bo\u0161tjan \u010cade\u017e",
+    "author": "Boštjan Čadež",
     "authorLink": "https://fsk.deviantart.com"
   },
   {
@@ -1412,7 +1412,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/101.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/101.html",
-    "author": "R\u00e9mi Vansteelandt",
+    "author": "Rémi Vansteelandt",
     "authorLink": "https://remvst.com"
   },
   {
@@ -1617,7 +1617,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/116.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/116.html",
-    "author": "RHM Interactive O\u00dc",
+    "author": "RHM Interactive OÜ",
     "authorLink": "https://play.google.com/store/apps/dev?id=9182049342574405049&hl=en_US"
   },
   {
@@ -3941,7 +3941,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-005@main/c/294.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/294.html",
-    "author": "Lutz Sch\u00f6nfelder",
+    "author": "Lutz Schönfelder",
     "authorLink": "https://github.com/luts91"
   },
   {
@@ -6632,7 +6632,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/489.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/489.html",
-    "author": "MOR\u00d8 etc",
+    "author": "MORØ etc",
     "authorLink": "https://gamejolt.com/games/indiecross/643540"
   },
   {
@@ -6910,7 +6910,7 @@
   },
   {
     "id": 509,
-    "title": "Friday Night Funkin\u2019 Soft",
+    "title": "Friday Night Funkin’ Soft",
     "slug": "friday-night-funkin-soft",
     "category": [
       "Rhythm"
@@ -8389,7 +8389,7 @@
   },
   {
     "id": 616,
-    "title": "Friday Night Funkin\u2019 Wednesday's Infidelity",
+    "title": "Friday Night Funkin’ Wednesday's Infidelity",
     "slug": "friday-night-funkin-wednesday-s-infidelity",
     "category": [
       "Rhythm"
@@ -10093,7 +10093,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-004@main/c/737.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/737.html",
-    "author": "\u3073\u3076/viv",
+    "author": "びぶ/viv",
     "authorLink": "https://store.steampowered.com/app/3079280/Saihate_Station/"
   },
   {
@@ -10115,7 +10115,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/739.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/739.html",
-    "author": "RHM Interactive O\u00dc",
+    "author": "RHM Interactive OÜ",
     "authorLink": "https://play.google.com/store/apps/details?id=com.twoplayergames.soccerrandom"
   },
   {
@@ -16313,6 +16313,30 @@
     "authorLink": ""
   },
   {
+    "id": 1380,
+    "title": "COD Mobile (May Not Work)",
+    "slug": "cod-mobile",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1380.png",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1380/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 1381,
+    "title": "Counter Strike (May Not Work)",
+    "slug": "counter-strike",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1381.png",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1381/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
     "id": 1382,
     "title": "Cubeform",
     "slug": "cubeform",
@@ -16349,6 +16373,18 @@
     "authorLink": ""
   },
   {
+    "id": 1385,
+    "title": "Genshin Impact (May Not Work)",
+    "slug": "genshin-impact",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1385.png",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1385/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
     "id": 1386,
     "title": "Janissary Battles",
     "slug": "janissary-battles",
@@ -16380,6 +16416,18 @@
     "special": [],
     "thumb": "",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1388/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 1389,
+    "title": "Melon Sandbox (May Not Work)",
+    "slug": "melon-sandbox",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1389.png",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1389/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16481,6 +16529,18 @@
     "authorLink": ""
   },
   {
+    "id": 1398,
+    "title": "Stumble Guys (May Not Work)",
+    "slug": "stumble-guys",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1398.png",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1398/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
     "id": 1399,
     "title": "Funny Shooter 2",
     "slug": "funny-shooter-2",
@@ -16553,6 +16613,18 @@
     "authorLink": ""
   },
   {
+    "id": 1405,
+    "title": "Alien Shooter (May Not Work)",
+    "slug": "alien-shooter",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1405.jpg",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1405/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
     "id": 1406,
     "title": "The Chroma Incident",
     "slug": "the-chroma-incident",
@@ -16596,6 +16668,18 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1409.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-004@main/g/1409/index.html",
+    "cdnBase": "",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 1410,
+    "title": "Subway Surfers: Singapore (May Not Work)",
+    "slug": "subway-surfers-singapore",
+    "category": [],
+    "special": [],
+    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1410.png",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-008@main/g/1410/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
