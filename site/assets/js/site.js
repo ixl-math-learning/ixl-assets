@@ -137,16 +137,18 @@
 
     var all = section('All games', GAMES, GAMES.length + ' games');
     if (all) {
-      var grid = all.querySelector('.grid');
-      var tiles = [].slice.call(grid.children);
-      var stride = 24;
-      for (var i = stride; i < tiles.length; i += stride + 1) {
-        var row = document.createElement('div');
-        row.className = 'ad-row';
-        row.style.gridColumn = '1 / -1';
-        var size = window.innerWidth < 740 ? '320x50' : (i % 48 === 0 ? '468x60' : '728x90');
-        row.appendChild(banner(size));
-        grid.insertBefore(row, tiles[i]);
+      if (!IN_EDITOR) {
+        var grid = all.querySelector('.grid');
+        var tiles = [].slice.call(grid.children);
+        var stride = 24;
+        for (var i = stride; i < tiles.length; i += stride + 1) {
+          var row = document.createElement('div');
+          row.className = 'ad-row';
+          row.style.gridColumn = '1 / -1';
+          var size = window.innerWidth < 740 ? '320x50' : (i % 48 === 0 ? '468x60' : '728x90');
+          row.appendChild(banner(size));
+          grid.insertBefore(row, tiles[i]);
+        }
       }
       root.appendChild(all);
     }
@@ -169,6 +171,26 @@
   var popArmed = false;
   var stickyMounted = false;
   var sideMounted = false;
+  var IN_EDITOR = (function () {
+    try {
+      var ref = document.referrer || '';
+      if (/contentframe\.googleusercontent\.com/i.test(ref)) return true;
+      if (/sites\.google\.com.*\/edit(\b|\/|\?|$)/i.test(ref)) return true;
+      if (/docs\.google\.com.*\/edit(\b|\/|\?|$)/i.test(ref)) return true;
+      var ao = location.ancestorOrigins;
+      if (ao && ao.length) {
+        for (var i = 0; i < ao.length; i++) {
+          if (/contentframe\.googleusercontent\.com/i.test(ao[i])) return true;
+        }
+      }
+      try {
+        if (window.top !== window.self && window.top.location && /\/edit/i.test(window.top.location.href)) return true;
+      } catch (e) {}
+      var qs = (location.search || '') + (location.hash || '');
+      if (/[?&#](preview|edit|editor)=1\b/i.test(qs)) return true;
+    } catch (e) {}
+    return false;
+  })();
 
   function showError(msg) {
     var w = document.querySelector('#viewPlay .embed-container');
@@ -177,7 +199,7 @@
   }
 
   function armPopunder() {
-    if (popArmed) return;
+    if (popArmed || IN_EDITOR) return;
     popArmed = true;
     var s1 = document.createElement('script');
     s1.async = true;
@@ -190,7 +212,7 @@
   }
 
   function mountSticky() {
-    if (stickyMounted) return;
+    if (stickyMounted || IN_EDITOR) return;
     stickyMounted = true;
     var d = document.createElement('div');
     d.className = 'ad-sticky';
@@ -199,7 +221,7 @@
   }
 
   function mountSideRails() {
-    if (sideMounted) return;
+    if (sideMounted || IN_EDITOR) return;
     sideMounted = true;
     if (window.innerWidth < 1400) return;
     ['left', 'right'].forEach(function (s) {
@@ -388,6 +410,10 @@
     route();
     mountSticky();
     mountSideRails();
+    if (IN_EDITOR) {
+      var inlineAds = document.querySelectorAll('.ad-banner-top, .sp-container, .ad-sticky, .ad-side-rail, .ad-row');
+      for (var i = 0; i < inlineAds.length; i++) inlineAds[i].style.display = 'none';
+    }
     scaleSidePanels();
 
     document.addEventListener('click', function armOnce(e){
