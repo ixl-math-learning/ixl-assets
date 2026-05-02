@@ -137,18 +137,16 @@
 
     var all = section('All games', GAMES, GAMES.length + ' games');
     if (all) {
-      if (!EMBEDDED) {
-        var grid = all.querySelector('.grid');
-        var tiles = [].slice.call(grid.children);
-        var stride = 24;
-        for (var i = stride; i < tiles.length; i += stride + 1) {
-          var row = document.createElement('div');
-          row.className = 'ad-row';
-          row.style.gridColumn = '1 / -1';
-          var size = window.innerWidth < 740 ? '320x50' : (i % 48 === 0 ? '468x60' : '728x90');
-          row.appendChild(banner(size));
-          grid.insertBefore(row, tiles[i]);
-        }
+      var grid = all.querySelector('.grid');
+      var tiles = [].slice.call(grid.children);
+      var stride = 24;
+      for (var i = stride; i < tiles.length; i += stride + 1) {
+        var row = document.createElement('div');
+        row.className = 'ad-row';
+        row.style.gridColumn = '1 / -1';
+        var size = window.innerWidth < 740 ? '320x50' : (i % 48 === 0 ? '468x60' : '728x90');
+        row.appendChild(banner(size));
+        grid.insertBefore(row, tiles[i]);
       }
       root.appendChild(all);
     }
@@ -171,7 +169,6 @@
   var popArmed = false;
   var stickyMounted = false;
   var sideMounted = false;
-  var EMBEDDED = (function(){ try { return window.top !== window.self; } catch(e) { return true; } })();
 
   function showError(msg) {
     var w = document.querySelector('#viewPlay .embed-container');
@@ -180,7 +177,7 @@
   }
 
   function armPopunder() {
-    if (popArmed || EMBEDDED) return;
+    if (popArmed) return;
     popArmed = true;
     var s1 = document.createElement('script');
     s1.async = true;
@@ -193,7 +190,7 @@
   }
 
   function mountSticky() {
-    if (stickyMounted || EMBEDDED) return;
+    if (stickyMounted) return;
     stickyMounted = true;
     var d = document.createElement('div');
     d.className = 'ad-sticky';
@@ -202,7 +199,7 @@
   }
 
   function mountSideRails() {
-    if (sideMounted || EMBEDDED) return;
+    if (sideMounted) return;
     sideMounted = true;
     if (window.innerWidth < 1400) return;
     ['left', 'right'].forEach(function (s) {
@@ -389,14 +386,8 @@
     });
     paint();
     route();
-    if (!EMBEDDED) {
-      mountSticky();
-      mountSideRails();
-    } else {
-      var inlineAds = document.querySelectorAll('.ad-banner-top, .sp-container, .ad-sticky, .ad-side-rail, .ad-row');
-      for (var i = 0; i < inlineAds.length; i++) inlineAds[i].style.display = 'none';
-      document.documentElement.classList.add('vnl-embedded');
-    }
+    mountSticky();
+    mountSideRails();
     scaleSidePanels();
 
     document.addEventListener('click', function armOnce(e){
