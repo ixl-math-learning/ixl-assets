@@ -397,22 +397,22 @@
   window.addEventListener('hashchange', route);
   window.addEventListener('resize', scaleSidePanels);
 
-  function isSha(s) { return typeof s === 'string' && /^[a-f0-9]{7,40}$/.test(s); }
   async function resolveBase() {
-    if (window.VNL_CDN && /@[a-f0-9]{7,40}\//.test(window.VNL_CDN)) return window.VNL_CDN;
+    if (window.VNL_CDN && /@[^/]+\/site$/.test(window.VNL_CDN) && !/@main\/site$/.test(window.VNL_CDN)) return window.VNL_CDN;
     try {
-      var c = JSON.parse(sessionStorage.getItem('vnl_sha') || 'null');
-      if (c && isSha(c.sha) && (Date.now() - c.t) < 300000) {
-        return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + c.sha + '/site';
+      var c = JSON.parse(sessionStorage.getItem('vnl_v') || 'null');
+      if (c && c.v && (Date.now() - c.t) < 300000) {
+        return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + c.v + '/site';
       }
     } catch (e) {}
     try {
-      var r = await fetch('https://api.github.com/repos/ixl-math-learning/ixl-assets/commits/main', { cache: 'no-store' });
+      var r = await fetch('https://data.jsdelivr.com/v1/packages/gh/ixl-math-learning/ixl-assets', { cache: 'no-store' });
       if (r.ok) {
         var d = await r.json();
-        if (d && isSha(d.sha)) {
-          try { sessionStorage.setItem('vnl_sha', JSON.stringify({ sha: d.sha, t: Date.now() })); } catch (e) {}
-          return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + d.sha + '/site';
+        var v = d && d.versions && d.versions[0] && d.versions[0].version;
+        if (v) {
+          try { sessionStorage.setItem('vnl_v', JSON.stringify({ v: v, t: Date.now() })); } catch (e) {}
+          return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + v + '/site';
         }
       }
     } catch (e) {}
