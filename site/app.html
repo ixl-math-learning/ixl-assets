@@ -49,12 +49,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/assets/css/matte-theme.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site/assets/css/site.css">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-814Y2X3KSF"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-814Y2X3KSF');
+(function(){
+  try {
+    var inIframe = false; try { inIframe = window.top !== window.self; } catch (e) { inIframe = true; }
+    var topBlocked = false; try { void window.top.location.href; } catch (e) { topBlocked = true; }
+    if (inIframe && topBlocked) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-814Y2X3KSF';
+    s.onerror = function(){};
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ try { dataLayer.push(arguments); } catch(e){} }
+    gtag('js', new Date());
+    gtag('config', 'G-814Y2X3KSF');
+  } catch (e) {}
+})();
 </script>
 
 <script>window.VNL_CDN = 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site';</script>

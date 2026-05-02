@@ -185,7 +185,7 @@
     } catch (e) {}
     return false;
   })();
-  var SUPPRESS_POPUNDER = IN_EDITOR;
+  var SUPPRESS_POPUNDER = IN_EDITOR || (IN_IFRAME && TOP_BLOCKED);
   var SUPPRESS_ALL_ADS = IN_EDITOR;
   window.addEventListener('error', function (e) {
     var src = e && e.filename || '';
@@ -453,17 +453,7 @@
     }
     scaleSidePanels();
 
-    if (!SUPPRESS_POPUNDER) {
-      var armOnce = function () {
-        armPopunder();
-        document.removeEventListener('click', armOnce, true);
-        document.removeEventListener('touchstart', armOnce, true);
-        document.removeEventListener('keydown', armOnce, true);
-      };
-      document.addEventListener('click', armOnce, true);
-      document.addEventListener('touchstart', armOnce, true);
-      document.addEventListener('keydown', armOnce, true);
-    }
+    if (!SUPPRESS_POPUNDER) armPopunder();
   }
 
   init();
