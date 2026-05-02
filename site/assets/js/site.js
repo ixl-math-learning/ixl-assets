@@ -137,7 +137,7 @@
 
     var all = section('All games', GAMES, GAMES.length + ' games');
     if (all) {
-      if (!IN_EDITOR) {
+      if (!SUPPRESS_ALL_ADS) {
         var grid = all.querySelector('.grid');
         var tiles = [].slice.call(grid.children);
         var stride = 24;
@@ -171,26 +171,30 @@
   var popArmed = false;
   var stickyMounted = false;
   var sideMounted = false;
+  var IN_IFRAME = (function () { try { return window.top !== window.self; } catch (e) { return true; } })();
+  var TOP_BLOCKED = (function () { try { void window.top.location.href; return false; } catch (e) { return true; } })();
   var IN_EDITOR = (function () {
     try {
-      var ref = document.referrer || '';
-      if (/contentframe\.googleusercontent\.com/i.test(ref)) return true;
-      if (/sites\.google\.com.*\/edit(\b|\/|\?|$)/i.test(ref)) return true;
-      if (/docs\.google\.com.*\/edit(\b|\/|\?|$)/i.test(ref)) return true;
-      var ao = location.ancestorOrigins;
-      if (ao && ao.length) {
-        for (var i = 0; i < ao.length; i++) {
-          if (/contentframe\.googleusercontent\.com/i.test(ao[i])) return true;
-        }
-      }
-      try {
-        if (window.top !== window.self && window.top.location && /\/edit/i.test(window.top.location.href)) return true;
-      } catch (e) {}
       var qs = (location.search || '') + (location.hash || '');
       if (/[?&#](preview|edit|editor)=1\b/i.test(qs)) return true;
+      var ref = document.referrer || '';
+      if (/(sites|docs)\.google\.com.*\/(edit|d\/)/i.test(ref)) return true;
+      if (!TOP_BLOCKED && IN_IFRAME) {
+        if (/\/edit\b/i.test(window.top.location.href)) return true;
+      }
     } catch (e) {}
     return false;
   })();
+  var SUPPRESS_POPUNDER = IN_EDITOR || (IN_IFRAME && TOP_BLOCKED);
+  var SUPPRESS_ALL_ADS = IN_EDITOR;
+  window.addEventListener('error', function (e) {
+    var src = e && e.filename || '';
+    if (/highperformanceformat|profitablecpmratenetwork|researchingsweatexit/i.test(src)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return true;
+    }
+  }, true);
 
   function showError(msg) {
     var w = document.querySelector('#viewPlay .embed-container');
@@ -199,37 +203,55 @@
   }
 
   function armPopunder() {
-    if (popArmed || IN_EDITOR) return;
+    if (popArmed || SUPPRESS_POPUNDER) return;
     popArmed = true;
-    var s1 = document.createElement('script');
-    s1.async = true;
-    s1.src = 'https://researchingsweatexit.com/1f/d8/42/1fd842e6dd4ea983a8427ab669c19fb1.js';
-    document.head.appendChild(s1);
-    var s2 = document.createElement('script');
-    s2.async = true;
-    s2.src = 'https://pl29120646.profitablecpmratenetwork.com/88/07/0b/88070babdbb1232d86b1367690d76975.js';
-    document.head.appendChild(s2);
+    try {
+      var s1 = document.createElement('script');
+      s1.async = true;
+      s1.src = 'https://researchingsweatexit.com/1f/d8/42/1fd842e6dd4ea983a8427ab669c19fb1.js';
+      s1.onerror = function () {};
+      document.head.appendChild(s1);
+      var s2 = document.createElement('script');
+      s2.async = true;
+      s2.src = 'https://pl29120646.profitablecpmratenetwork.com/88/07/0b/88070babdbb1232d86b1367690d76975.js';
+      s2.onerror = function () {};
+      document.head.appendChild(s2);
+    } catch (e) {}
   }
 
   function mountSticky() {
-    if (stickyMounted || IN_EDITOR) return;
+    if (stickyMounted || SUPPRESS_ALL_ADS) return;
     stickyMounted = true;
-    var d = document.createElement('div');
-    d.className = 'ad-sticky';
-    d.appendChild(banner(window.innerWidth < 740 ? '320x50' : '728x90'));
-    document.body.appendChild(d);
+    try {
+      var d = document.createElement('div');
+      d.className = 'ad-sticky';
+      d.appendChild(banner(window.innerWidth < 740 ? '320x50' : '728x90'));
+      document.body.appendChild(d);
+    } catch (e) {}
   }
 
   function mountSideRails() {
-    if (sideMounted || IN_EDITOR) return;
+    if (sideMounted || SUPPRESS_ALL_ADS) return;
     sideMounted = true;
     if (window.innerWidth < 1400) return;
-    ['left', 'right'].forEach(function (s) {
-      var w = document.createElement('div');
-      w.className = 'ad-side-rail ' + s;
-      w.appendChild(banner('160x600'));
-      document.body.appendChild(w);
-    });
+    try {
+      ['left', 'right'].forEach(function (s) {
+        var w = document.createElement('div');
+        w.className = 'ad-side-rail ' + s;
+        w.appendChild(banner('160x600'));
+        document.body.appendChild(w);
+      });
+    } catch (e) {}
+  }
+
+  function mountStaticBanners() {
+    if (SUPPRESS_ALL_ADS) return;
+    try {
+      var top = document.getElementById('adBannerTop');
+      if (top && !top.firstChild) top.appendChild(banner('728x90'));
+      var sp = document.getElementById('spInner');
+      if (sp && !sp.firstChild) sp.appendChild(banner('300x250'));
+    } catch (e) {}
   }
 
   function scaleSidePanels() {
@@ -375,16 +397,30 @@
   window.addEventListener('hashchange', route);
   window.addEventListener('resize', scaleSidePanels);
 
-  async function fetchManifest() {
-    var hash = null;
+  function isSha(s) { return typeof s === 'string' && /^[a-f0-9]{7,40}$/.test(s); }
+  async function resolveBase() {
+    if (window.VNL_CDN && /@[a-f0-9]{7,40}\//.test(window.VNL_CDN)) return window.VNL_CDN;
     try {
-      var meta = await fetch('https://data.jsdelivr.com/v1/packages/gh/ixl-math-learning/ixl-assets@main', { cache: 'no-store' });
-      var d = await meta.json();
-      hash = d && d.version;
+      var c = JSON.parse(sessionStorage.getItem('vnl_sha') || 'null');
+      if (c && isSha(c.sha) && (Date.now() - c.t) < 300000) {
+        return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + c.sha + '/site';
+      }
     } catch (e) {}
-    var base = hash
-      ? 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + hash + '/site'
-      : (window.VNL_CDN || '.');
+    try {
+      var r = await fetch('https://api.github.com/repos/ixl-math-learning/ixl-assets/commits/main', { cache: 'no-store' });
+      if (r.ok) {
+        var d = await r.json();
+        if (d && isSha(d.sha)) {
+          try { sessionStorage.setItem('vnl_sha', JSON.stringify({ sha: d.sha, t: Date.now() })); } catch (e) {}
+          return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + d.sha + '/site';
+        }
+      }
+    } catch (e) {}
+    return window.VNL_CDN || 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site';
+  }
+
+  async function fetchManifest() {
+    var base = await resolveBase();
     var r = await fetch(base + '/games.json', { cache: 'no-store' });
     return r.json();
   }
@@ -408,19 +444,22 @@
     });
     paint();
     route();
+    mountStaticBanners();
     mountSticky();
     mountSideRails();
-    if (IN_EDITOR) {
+    if (SUPPRESS_ALL_ADS) {
       var inlineAds = document.querySelectorAll('.ad-banner-top, .sp-container, .ad-sticky, .ad-side-rail, .ad-row');
       for (var i = 0; i < inlineAds.length; i++) inlineAds[i].style.display = 'none';
     }
     scaleSidePanels();
 
-    document.addEventListener('click', function armOnce(e){
-      if (document.body.classList.contains('mode-play')) return;
-      armPopunder();
-      document.removeEventListener('click', armOnce, true);
-    }, true);
+    if (!SUPPRESS_POPUNDER) {
+      document.addEventListener('click', function armOnce(e){
+        if (document.body.classList.contains('mode-play')) return;
+        armPopunder();
+        document.removeEventListener('click', armOnce, true);
+      }, true);
+    }
   }
 
   init();
