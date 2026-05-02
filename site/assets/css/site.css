@@ -45,9 +45,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;ba
 .ad-row iframe{display:block;border:0;background:transparent}
 .ad-banner-top{display:flex;justify-content:center;margin:1rem auto 1.5rem;min-height:96px}
 .ad-side-rail{position:fixed;top:50%;transform:translateY(-50%);z-index:30}
-.ad-side-rail.left{left:1rem}
-.ad-side-rail.right{right:1rem}
-@media (max-width:1400px){.ad-side-rail{display:none}}
+.ad-side-rail.left{left:max(.5rem, calc((100vw - 1500px) / 2 - 170px))}
+.ad-side-rail.right{right:max(.5rem, calc((100vw - 1500px) / 2 - 170px))}
+@media (max-width:1860px){.ad-side-rail{display:none}}
 .ad-sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,8,.95);border-top:1px solid rgba(255,255,255,.06);padding:.4rem;display:flex;justify-content:center;z-index:40;backdrop-filter:blur(20px)}
 .ad-sticky iframe{border:0;background:transparent}
 
