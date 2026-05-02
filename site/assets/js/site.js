@@ -353,11 +353,23 @@
   window.addEventListener('hashchange', route);
   window.addEventListener('resize', scaleSidePanels);
 
-  async function init() {
-    var url = (window.VNL_CDN || '.') + '/games.json?cb=' + Date.now();
+  async function fetchManifest() {
+    var hash = null;
     try {
-      var r = await fetch(url, { cache: 'no-store' });
-      GAMES = await r.json();
+      var meta = await fetch('https://data.jsdelivr.com/v1/packages/gh/ixl-math-learning/ixl-assets@main', { cache: 'no-store' });
+      var d = await meta.json();
+      hash = d && d.version;
+    } catch (e) {}
+    var base = hash
+      ? 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + hash + '/site'
+      : (window.VNL_CDN || '.');
+    var r = await fetch(base + '/games.json', { cache: 'no-store' });
+    return r.json();
+  }
+
+  async function init() {
+    try {
+      GAMES = await fetchManifest();
     } catch (e) {
       document.getElementById('content').innerHTML =
         '<div class="empty">Failed to load games.json. Try refreshing.</div>';
