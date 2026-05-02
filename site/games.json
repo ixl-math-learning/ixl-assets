@@ -44823,5 +44823,89 @@
     "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-565@v1.0.0/gamezone/Space_Huggers/",
     "author": "",
     "authorLink": ""
+  },
+  {
+    "id": 3680,
+    "title": "Tunnelrush (skoolgq)",
+    "slug": "tunnelrush-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/tunnelrush/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/tunnelrush/",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 3681,
+    "title": "Papashotdoggeria (skoolgq)",
+    "slug": "papashotdoggeria-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/papashotdoggeria/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/papashotdoggeria/",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 3682,
+    "title": "Stickman Hook (skoolgq)",
+    "slug": "stickman-hook-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/stickman-hook/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/stickman-hook/",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 3683,
+    "title": "Basket Random (skoolgq)",
+    "slug": "basket-random-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/basket-random/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/basket-random/",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 3684,
+    "title": "Nowgg (skoolgq)",
+    "slug": "nowgg-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/nowgg/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-566@v1.0.0/skoolgq-v2/nowgg/",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 3685,
+    "title": "Geometrydash (skoolgq)",
+    "slug": "geometrydash-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-567@v1.0.0/skoolgq-v2/geometrydash/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-567@v1.0.0/skoolgq-v2/geometrydash/",
+    "author": "",
+    "authorLink": ""
+  },
+  {
+    "id": 3686,
+    "title": "Axisfootballleague (skoolgq)",
+    "slug": "axisfootballleague-skoolgq",
+    "category": [],
+    "special": [],
+    "thumb": "",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-567@v1.0.0/skoolgq-v2/axisfootballleague/index.html",
+    "cdnBase": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-567@v1.0.0/skoolgq-v2/axisfootballleague/",
+    "author": "",
+    "authorLink": ""
   }
 ]
