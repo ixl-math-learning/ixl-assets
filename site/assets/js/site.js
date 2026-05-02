@@ -260,7 +260,6 @@
     if (ico && g.thumb) ico.src = g.thumb;
     if (url) url.textContent = location.origin;
     pushRecent(g.id);
-    armPopunder();
     scaleSidePanels();
     fillRelated(g.id);
 
@@ -380,6 +379,12 @@
     mountSticky();
     mountSideRails();
     scaleSidePanels();
+
+    document.addEventListener('click', function armOnce(e){
+      if (document.body.classList.contains('mode-play')) return;
+      armPopunder();
+      document.removeEventListener('click', armOnce, true);
+    }, true);
   }
 
   init();
