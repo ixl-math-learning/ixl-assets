@@ -5,6 +5,18 @@
   function rd(k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }
   function wr(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
+  function rewriteUrl(url) {
+    if (!url) return url;
+    var pat = window.VNL_REWRITE_PATTERN;
+    if (!pat || window.VNL_SERVER === '1') return url;
+    return url.replace(
+      /^https:\/\/cdn\.jsdelivr\.net\/gh\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\/(.*)$/,
+      function (_, u, r, t, rest) {
+        return pat.replace('{user}', u).replace('{repo}', r).replace('{tag}', t).replace('{rest}', rest);
+      }
+    );
+  }
+
   var GAMES = [];
   var CATS = [];
   var st = {
@@ -57,7 +69,7 @@
     a.href = '#/play/' + g.id;
     var img = document.createElement('img');
     img.loading = 'lazy';
-    img.src = g.thumb;
+    img.src = rewriteUrl(g.thumb);
     img.alt = g.title;
     img.onerror = function () { img.style.background = '#1a1a1a'; img.removeAttribute('src'); };
     a.appendChild(img);
@@ -301,7 +313,7 @@
     var ico = document.getElementById('cntIcon');
     var url = document.getElementById('urlDisplay');
     if (ttl) ttl.textContent = g.title;
-    if (ico && g.thumb) ico.src = g.thumb;
+    if (ico && g.thumb) ico.src = rewriteUrl(g.thumb);
     if (url) url.textContent = location.origin;
     pushRecent(g.id);
     scaleSidePanels();
@@ -313,9 +325,19 @@
     if (blobUrl) { URL.revokeObjectURL(blobUrl); blobUrl = null; }
 
     try {
-      var r = await fetch(g.jsdelivrUrl + '?cb=' + Date.now());
+      var gameUrl = rewriteUrl(g.jsdelivrUrl);
+      var r = await fetch(gameUrl + '?cb=' + Date.now());
       if (!r.ok) throw new Error('HTTP ' + r.status);
       var html = await r.text();
+      if (window.VNL_REWRITE_PATTERN && window.VNL_SERVER !== '1') {
+        var pat = window.VNL_REWRITE_PATTERN;
+        html = html.replace(
+          /https:\/\/cdn\.jsdelivr\.net\/gh\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\/([^"'<>) ]+)/g,
+          function (_, u, repo, t, rest) {
+            return pat.replace('{user}', u).replace('{repo}', repo).replace('{tag}', t).replace('{rest}', rest);
+          }
+        );
+      }
       if (g.cdnBase && !/<base[\s>]/i.test(html)) {
         var baseTag = '<base href="' + g.cdnBase + '">';
         if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
