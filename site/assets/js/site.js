@@ -253,7 +253,6 @@
   }
 
   async function loadGame(g) {
-    document.title = g.title + ' — Void Network Lite';
     var ttl = document.getElementById('playTitle');
     var ico = document.getElementById('cntIcon');
     var url = document.getElementById('urlDisplay');
@@ -279,6 +278,20 @@
         if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
         else html = baseTag + html;
       }
+      var inject = '<style id="vn-strip">' +
+        '[class*="fullscreen" i],[id*="fullscreen" i],[class*="fs-btn"],[id*="fs-btn"],' +
+        '[class*="fullscreenButton" i],[id*="fullscreenButton" i],' +
+        '[class*="fullscreen-toggle" i],[id*="fullscreen-toggle" i],' +
+        '[aria-label*="ullscreen" i],[title*="ullscreen" i],[data-action*="fullscreen" i],' +
+        'button.fs,button[onclick*="ullscreen"],button[onclick*="ScreenfulRequest"],' +
+        '.cordialfullscreen,.fullscreenIcon,.gd-fullscreen-button,.crazy-fullscreen,' +
+        '#sidebarad1,#sidebarad2,#sidebar-ad-1,#sidebar-ad-2,.sidebar-ad,.ads-side,' +
+        '#zone-fs,.zone-fs,.zone-fullscreen,.gameTitleBar,.cm-titlebar,' +
+        '[id*="overlay-fullscreen" i] {display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}' +
+        '</style>' +
+        '<script>(function(){var t="‎ ";var f="https://lh7-rt.googleusercontent.com/formsz/AN7BsVCtbwY8Cb3H2D1QuibEQiv_L72bELyeeYb5P9vL5wlYRgjGGjV0ivRmhWFZKJ97Sw26bnIUJYrQ0hhqXXYhuo7BDJVMLU_Cm2lT8cEBT65eCDkfpnedVw3PK_p2MgksAQhAFsdRrieNh4Kg_dkbiASZrZw3jXlFegrv=s2048?key=fPApFUiXQxbHmau6r-uvmA";function force(){try{document.title=t;}catch(e){}try{var ls=document.querySelectorAll(\'link[rel*="icon"]\');ls.forEach(function(l){l.remove();});var l=document.createElement("link");l.rel="icon";l.href=f;document.head&&document.head.appendChild(l);}catch(e){}try{if(parent&&parent!==window)parent.document.title=t;}catch(e){}}force();setInterval(force,800);try{new MutationObserver(force).observe(document.documentElement,{childList:true,subtree:true,attributes:true});}catch(e){}})();<\/script>';
+      if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
+      else html = inject + html;
       iframe.removeAttribute('src');
       iframe.srcdoc = html;
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
@@ -327,14 +340,13 @@
     if (m) {
       var id = +m[1];
       var g = GAMES.find(function (x) { return x.id === id; });
-      if (!g) { show('Browse'); setMode('browse'); document.title = 'Void Network Lite — Free Browser Games'; return; }
+      if (!g) { show('Browse'); setMode('browse'); return; }
       show('Play'); setMode('play'); loadGame(g); return;
     }
     setMode('browse');
-    if (h.indexOf('#/dmca')    === 0) { show('Dmca');    document.title = 'DMCA — Void Network Lite';    return; }
-    if (h.indexOf('#/privacy') === 0) { show('Privacy'); document.title = 'Privacy — Void Network Lite'; return; }
+    if (h.indexOf('#/dmca')    === 0) { show('Dmca');    return; }
+    if (h.indexOf('#/privacy') === 0) { show('Privacy'); return; }
     show('Browse');
-    document.title = 'Void Network Lite — Free Browser Games';
     var fr = document.getElementById('gameFrame');
     if (fr) { fr.removeAttribute('srcdoc'); fr.src = 'about:blank'; }
     if (blobUrl) { URL.revokeObjectURL(blobUrl); blobUrl = null; }
