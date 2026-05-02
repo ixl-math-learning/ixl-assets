@@ -9,7 +9,7 @@
     try {
       var h = location.host;
       if (/cdn\.statically\.io/i.test(h))         return 'https://cdn.statically.io/gh/{user}/{repo}/{tag}/{rest}';
-      if (/gitcdn\.link/i.test(h))                return 'https://gitcdn.link/cdn/{user}/{repo}/{tag}/{rest}';
+      if (/fastly\.jsdelivr\.net/i.test(h))       return 'https://fastly.jsdelivr.net/gh/{user}/{repo}@{tag}/{rest}';
       if (/rawcdn\.githack\.com/i.test(h))        return 'https://rawcdn.githack.com/{user}/{repo}/{tag}/{rest}';
       if (/raw\.githubusercontent\.com/i.test(h)) return 'https://raw.githubusercontent.com/{user}/{repo}/{tag}/{rest}';
     } catch (e) {}
@@ -431,30 +431,24 @@
   window.addEventListener('hashchange', route);
   window.addEventListener('resize', scaleSidePanels);
 
-  async function resolveBase() {
-    if (window.VNL_CDN && /@[^/]+\/site$/.test(window.VNL_CDN) && !/@main\/site$/.test(window.VNL_CDN)) return window.VNL_CDN;
+  function deriveBaseFromLocation() {
     try {
-      var c = JSON.parse(sessionStorage.getItem('vnl_v') || 'null');
-      if (c && c.v && (Date.now() - c.t) < 300000) {
-        return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + c.v + '/site';
-      }
+      var u = new URL(location.href);
+      var h = u.host;
+      if (!/cdn\.statically\.io|fastly\.jsdelivr\.net|cdn\.jsdelivr\.net|rawcdn\.githack\.com|raw\.githubusercontent\.com|gitcdn\.link/i.test(h)) return null;
+      var m = u.pathname.match(/^(.*\/site)(?:\/|$)/);
+      if (m) return u.origin + m[1];
     } catch (e) {}
-    try {
-      var r = await fetch('https://data.jsdelivr.com/v1/packages/gh/ixl-math-learning/ixl-assets', { cache: 'no-store' });
-      if (r.ok) {
-        var d = await r.json();
-        var v = d && d.versions && d.versions[0] && d.versions[0].version;
-        if (v) {
-          try { sessionStorage.setItem('vnl_v', JSON.stringify({ v: v, t: Date.now() })); } catch (e) {}
-          return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@' + v + '/site';
-        }
-      }
-    } catch (e) {}
-    return window.VNL_CDN || 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site';
+    return null;
   }
-
+  function resolveBase() {
+    var derived = deriveBaseFromLocation();
+    if (derived) return derived;
+    if (window.VNL_CDN) return window.VNL_CDN;
+    return 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@main/site';
+  }
   async function fetchManifest() {
-    var base = await resolveBase();
+    var base = resolveBase();
     var r = await fetch(base + '/games.json', { cache: 'no-store' });
     return r.json();
   }
