@@ -5,7 +5,7 @@
 <html lang="en-us">
 
 <head>
-  <base href="https://cdn.jsdelivr.net/gh/bubbls/youtube-playables@c5eefc5c13316b94c58e63cb5270b99a13c88fea/solar-smash/">
+  <base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-071/m/gh/bubbls/youtube-playables/c5eefc5c13316b94c58e63cb5270b99a13c88fea/solar-smash/">
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 
   <title>YT Game Wrapper WebGL Template</title>
   <link rel="stylesheet" href="TemplateData/style.css" nonce="we8ZPMAc10sjbMeA8f_pRw">
-  <script src="https://cdn.jsdelivr.net/gh/bubbls/youtube-playables@main/ytgame.js" nonce="we8ZPMAc10sjbMeA8f_pRw">// Load YT Game API code</script>
+  <script src="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-024/m/gh/bubbls/youtube-playables/main/ytgame.js" nonce="we8ZPMAc10sjbMeA8f_pRw">// Load YT Game API code</script>
 <style>
 
 </style>
@@ -456,10 +456,10 @@ const originalFetch = window.fetch;
 
 window.fetch = function(input, options) {
     if (typeof input === 'string' && input.endsWith("AssetBundles/WebGL/planets")) {
-        input = 'https://rawcdn.githack.com/bubbls/youtube-playables/c5eefc5c13316b94c58e63cb5270b99a13c88fea/solar-smash/StreamingAssets/AssetBundles/WebGL/planets';
+        input = 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-054/m/githack/bubbls/youtube-playables/c5eefc5c13316b94c58e63cb5270b99a13c88fea/solar-smash/StreamingAssets/AssetBundles/WebGL/planets';
         return originalFetch(input, options);
     } else if (typeof input === 'string' && input.endsWith("AssetBundles/WebGL/planets2")) {
-        input = 'https://rawcdn.githack.com/bubbls/youtube-playables/c5eefc5c13316b94c58e63cb5270b99a13c88fea/solar-smash/StreamingAssets/AssetBundles/WebGL/planets2';
+        input = 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-054/m/githack/bubbls/youtube-playables/c5eefc5c13316b94c58e63cb5270b99a13c88fea/solar-smash/StreamingAssets/AssetBundles/WebGL/planets2';
         return originalFetch(input, options);
     }
 
