@@ -354,9 +354,9 @@
   window.addEventListener('resize', scaleSidePanels);
 
   async function init() {
-    var url = (window.VNL_CDN || '.') + '/games.json';
+    var url = (window.VNL_CDN || '.') + '/games.json?cb=' + Date.now();
     try {
-      var r = await fetch(url);
+      var r = await fetch(url, { cache: 'no-store' });
       GAMES = await r.json();
     } catch (e) {
       document.getElementById('content').innerHTML =
