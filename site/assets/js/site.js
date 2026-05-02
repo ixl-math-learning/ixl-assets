@@ -5,10 +5,20 @@
   function rd(k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }
   function wr(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
+  var DETECTED_PATTERN = (function () {
+    try {
+      var h = location.host;
+      if (/cdn\.statically\.io/i.test(h))         return 'https://cdn.statically.io/gh/{user}/{repo}/{tag}/{rest}';
+      if (/gitcdn\.link/i.test(h))                return 'https://gitcdn.link/cdn/{user}/{repo}/{tag}/{rest}';
+      if (/rawcdn\.githack\.com/i.test(h))        return 'https://rawcdn.githack.com/{user}/{repo}/{tag}/{rest}';
+      if (/raw\.githubusercontent\.com/i.test(h)) return 'https://raw.githubusercontent.com/{user}/{repo}/{tag}/{rest}';
+    } catch (e) {}
+    return null;
+  })();
   function rewriteUrl(url) {
     if (!url) return url;
-    var pat = window.VNL_REWRITE_PATTERN;
-    if (!pat || window.VNL_SERVER === '1') return url;
+    var pat = window.VNL_REWRITE_PATTERN || DETECTED_PATTERN;
+    if (!pat) return url;
     return url.replace(
       /^https:\/\/cdn\.jsdelivr\.net\/gh\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\/(.*)$/,
       function (_, u, r, t, rest) {
@@ -329,8 +339,8 @@
       var r = await fetch(gameUrl + '?cb=' + Date.now());
       if (!r.ok) throw new Error('HTTP ' + r.status);
       var html = await r.text();
-      if (window.VNL_REWRITE_PATTERN && window.VNL_SERVER !== '1') {
-        var pat = window.VNL_REWRITE_PATTERN;
+      var pat = window.VNL_REWRITE_PATTERN || DETECTED_PATTERN;
+      if (pat) {
         html = html.replace(
           /https:\/\/cdn\.jsdelivr\.net\/gh\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\/([^"'<>) ]+)/g,
           function (_, u, repo, t, rest) {
@@ -338,8 +348,10 @@
           }
         );
       }
-      if (g.cdnBase && !/<base[\s>]/i.test(html)) {
-        var baseTag = '<base href="' + g.cdnBase + '">';
+      var autoBase = gameUrl.replace(/[?#].*$/, '').replace(/[^/]*$/, '');
+      var effectiveBase = g.cdnBase || autoBase;
+      if (effectiveBase && !/<base[\s>]/i.test(html)) {
+        var baseTag = '<base href="' + effectiveBase + '">';
         if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
         else html = baseTag + html;
       }
