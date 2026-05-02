@@ -278,17 +278,15 @@
         else html = baseTag + html;
       }
       var inject = '<style id="vn-strip">' +
-        '[class*="fullscreen" i],[id*="fullscreen" i],[class*="fs-btn"],[id*="fs-btn"],' +
-        '[class*="fullscreenButton" i],[id*="fullscreenButton" i],' +
-        '[class*="fullscreen-toggle" i],[id*="fullscreen-toggle" i],' +
-        '[aria-label*="ullscreen" i],[title*="ullscreen" i],[data-action*="fullscreen" i],' +
-        'button.fs,button[onclick*="ullscreen"],button[onclick*="ScreenfulRequest"],' +
-        '.cordialfullscreen,.fullscreenIcon,.gd-fullscreen-button,.crazy-fullscreen,' +
-        '#sidebarad1,#sidebarad2,#sidebar-ad-1,#sidebar-ad-2,.sidebar-ad,.ads-side,' +
-        '#zone-fs,.zone-fs,.zone-fullscreen,.gameTitleBar,.cm-titlebar,' +
-        '[id*="overlay-fullscreen" i] {display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}' +
-        '</style>' +
-        '<script>(function(){var t="‎ ";var f="https://lh7-rt.googleusercontent.com/formsz/AN7BsVCtbwY8Cb3H2D1QuibEQiv_L72bELyeeYb5P9vL5wlYRgjGGjV0ivRmhWFZKJ97Sw26bnIUJYrQ0hhqXXYhuo7BDJVMLU_Cm2lT8cEBT65eCDkfpnedVw3PK_p2MgksAQhAFsdRrieNh4Kg_dkbiASZrZw3jXlFegrv=s2048?key=fPApFUiXQxbHmau6r-uvmA";var iconLink=null;function ensureIcon(h){if(!h)return;if(iconLink&&iconLink.parentNode===h&&iconLink.href===f&&iconLink.rel==="icon")return;var ls=h.querySelectorAll(\'link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]\');for(var i=0;i<ls.length;i++){if(ls[i]===iconLink)continue;try{ls[i].parentNode&&ls[i].parentNode.removeChild(ls[i]);}catch(e){}}if(!iconLink||iconLink.parentNode!==h){iconLink=document.createElement("link");iconLink.rel="icon";iconLink.type="image/png";iconLink.href=f;try{h.appendChild(iconLink);}catch(e){}}}function force(){if(document.title!==t){try{document.title=t;}catch(e){}}ensureIcon(document.head);}force();setInterval(force,2500);})();<\/script>';
+        'button[aria-label*="ullscreen" i],button[title*="ullscreen" i],' +
+        'button.fullscreen,button.fullscreen-btn,button.fs-btn,button.fullscreenBtn,' +
+        'button.fullscreenButton,button.fullscreen-button,button.fullscreen-toggle,' +
+        'button[onclick*="ullscreen"],button[onclick*="screenfulRequest"],' +
+        'button.cordialfullscreen,button.fullscreenIcon,button.gd-fullscreen-button,' +
+        'button.crazy-fullscreen,#sidebarad1,#sidebarad2,#sidebar-ad-1,#sidebar-ad-2,' +
+        '.sidebar-ad,.ads-side,.gameTitleBar,.cm-titlebar' +
+        '{display:none !important;}' +
+        '</style>';
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
       iframe.removeAttribute('src');
