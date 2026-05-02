@@ -185,7 +185,7 @@
     } catch (e) {}
     return false;
   })();
-  var SUPPRESS_POPUNDER = IN_EDITOR || (IN_IFRAME && TOP_BLOCKED);
+  var SUPPRESS_POPUNDER = IN_EDITOR;
   var SUPPRESS_ALL_ADS = IN_EDITOR;
   window.addEventListener('error', function (e) {
     var src = e && e.filename || '';
