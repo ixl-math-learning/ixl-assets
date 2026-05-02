@@ -899,7 +899,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/66.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/66.html",
-    "author": "RHM Interactive OÜ",
+    "author": "RHM Interactive O\u00dc",
     "authorLink": "https://play.google.com/store/apps/dev?id=9182049342574405049&hl=en_US"
   },
   {
@@ -1328,7 +1328,7 @@
     ],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-004@main/c/95.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/95.html",
-    "author": "Boštjan Čadež",
+    "author": "Bo\u0161tjan \u010cade\u017e",
     "authorLink": "https://fsk.deviantart.com"
   },
   {
@@ -1412,7 +1412,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/101.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/101.html",
-    "author": "Rémi Vansteelandt",
+    "author": "R\u00e9mi Vansteelandt",
     "authorLink": "https://remvst.com"
   },
   {
@@ -1617,7 +1617,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/116.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/116.html",
-    "author": "RHM Interactive OÜ",
+    "author": "RHM Interactive O\u00dc",
     "authorLink": "https://play.google.com/store/apps/dev?id=9182049342574405049&hl=en_US"
   },
   {
@@ -3941,7 +3941,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-005@main/c/294.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/294.html",
-    "author": "Lutz Schönfelder",
+    "author": "Lutz Sch\u00f6nfelder",
     "authorLink": "https://github.com/luts91"
   },
   {
@@ -6632,7 +6632,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/489.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/489.html",
-    "author": "MORØ etc",
+    "author": "MOR\u00d8 etc",
     "authorLink": "https://gamejolt.com/games/indiecross/643540"
   },
   {
@@ -6910,7 +6910,7 @@
   },
   {
     "id": 509,
-    "title": "Friday Night Funkin’ Soft",
+    "title": "Friday Night Funkin\u2019 Soft",
     "slug": "friday-night-funkin-soft",
     "category": [
       "Rhythm"
@@ -8389,7 +8389,7 @@
   },
   {
     "id": 616,
-    "title": "Friday Night Funkin’ Wednesday's Infidelity",
+    "title": "Friday Night Funkin\u2019 Wednesday's Infidelity",
     "slug": "friday-night-funkin-wednesday-s-infidelity",
     "category": [
       "Rhythm"
@@ -10093,7 +10093,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-004@main/c/737.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/737.html",
-    "author": "びぶ/viv",
+    "author": "\u3073\u3076/viv",
     "authorLink": "https://store.steampowered.com/app/3079280/Saihate_Station/"
   },
   {
@@ -10115,7 +10115,7 @@
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-006@main/c/739.png",
     "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-assets@v1.0.0/739.html",
-    "author": "RHM Interactive OÜ",
+    "author": "RHM Interactive O\u00dc",
     "authorLink": "https://play.google.com/store/apps/details?id=com.twoplayergames.soccerrandom"
   },
   {
@@ -15947,7 +15947,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1349.webp",
-    "jsdelivrUrl": "https://harshulmoon.github.io/fnae.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-001@main/g/1349/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16211,7 +16211,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://gamesnacks.com/games/99balls3d",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1371/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16223,19 +16223,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://than1089.github.io/adventure-capitalist/",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1373,
-    "title": "Diep.io",
-    "slug": "diep-io",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1373.png",
-    "jsdelivrUrl": "https://diep.io/",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-002@main/g/1372/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16247,7 +16235,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1374.jpg",
-    "jsdelivrUrl": "https://ultimatemen.github.io/games/ashbelt/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1374/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16259,7 +16247,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://html5.gamedistribution.com/rvvASMiM/2c122cee7ef04222a962449e32a34e98/?gd_sdk_referrer_url=https://gamedistribution.com/games/asphalt-retro",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1375/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16271,19 +16259,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://skool.gay/cdn/axisfootballleague/index.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1377,
-    "title": "Bonk.io",
-    "slug": "bonk-io",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1377.png",
-    "jsdelivrUrl": "https://bonk.io",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-002@main/g/1376/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16295,43 +16271,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://candyjump.games235.com/",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1379,
-    "title": "Cluster Truck",
-    "slug": "cluster-truck",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1379.png",
-    "jsdelivrUrl": "https://www.snake-games.io/localgames/cluster-rush/",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1380,
-    "title": "COD Mobile",
-    "slug": "cod-mobile",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1380.png",
-    "jsdelivrUrl": "https://now.gg/play/activision-publishing-inc/7935/call-of-duty.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1381,
-    "title": "Counter Strike",
-    "slug": "counter-strike",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1381.png",
-    "jsdelivrUrl": "https://play-cs.com",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-004@main/g/1378/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16343,19 +16283,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://www.mathplayground.com/cubeform/index.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1383,
-    "title": "Defly.io",
-    "slug": "defly-io",
-    "category": [],
-    "special": [],
-    "thumb": "",
-    "jsdelivrUrl": "https://defly.io/",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-004@main/g/1382/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16367,19 +16295,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1384.jpeg",
-    "jsdelivrUrl": "https://html5.gamedistribution.com/rvvASMiM/a55c9cc9c21e4fc683c8c6857f3d0c75/?gd_sdk_referrer_url=https://gamedistribution.com/games/fireboy-and-watergirl-1-forest-temple",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1385,
-    "title": "Genshin Impact",
-    "slug": "genshin-impact",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1385.png",
-    "jsdelivrUrl": "https://nowgg.nl/play/cognosphere-pte-ltd-/1773/genshin-impact.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1384/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16391,19 +16307,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://html5.gamedistribution.com/rvvASMiM/8b55f4f729be4e70b6155f27d2e04690/?gd_sdk_referrer_url=https://gamedistribution.com/games/janissary-battles",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1387,
-    "title": "Kirka.io",
-    "slug": "kirka-io",
-    "category": [],
-    "special": [],
-    "thumb": "",
-    "jsdelivrUrl": "https://kirka.io/",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-000@main/g/1386/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16415,19 +16319,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://playcanv.as/p/JERg21J8",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1389,
-    "title": "Melon Sandbox",
-    "slug": "melon-sandbox",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1389.png",
-    "jsdelivrUrl": "https://nowgg.nl/play/playducky/7199/melon-sandbox.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1388/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16439,7 +16331,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1390.jpg",
-    "jsdelivrUrl": "https://rawcdn.githack.com/CybriaTech/Opium/main/games/eagler-1.3/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1390/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16451,7 +16343,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1391.jpg",
-    "jsdelivrUrl": "https://files.twoplayergames.org/files/games/other/Monster_Truck_Port_Stunt/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-001@main/g/1391/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16463,7 +16355,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://www.mathplayground.com/penalty-kicks/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-003@main/g/1392/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16475,19 +16367,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1393.png",
-    "jsdelivrUrl": "https://www.polkadotgame.com/game.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1394,
-    "title": "Robostorm",
-    "slug": "robostorm",
-    "category": [],
-    "special": [],
-    "thumb": "",
-    "jsdelivrUrl": "https://robostorm.io",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-000@main/g/1393/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16499,7 +16379,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1395.png",
-    "jsdelivrUrl": "https://v6p9d9t4.ssl.hwcdn.net/html/3325334/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-001@main/g/1395/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16511,7 +16391,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1396.jpeg",
-    "jsdelivrUrl": "https://html5.gamedistribution.com/rvvASMiM/0faa4468d18e4f7aa2e0161b4fefa193/?gd_sdk_referrer_url=https://gamedistribution.com/games/rotate",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-002@main/g/1396/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16523,19 +16403,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1397.jpg",
-    "jsdelivrUrl": "https://html5.gamedistribution.com/rvvASMiM/3f4c166817ad4fd4b5b05d9adba22fcd/?gd_sdk_referrer_url=https://www.gamegab.com/play/16561/Stickman-Archero-Fight/",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1398,
-    "title": "Stumble Guys",
-    "slug": "stumble-guys",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1398.png",
-    "jsdelivrUrl": "https://now.gg/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=skool",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-002@main/g/1397/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16547,19 +16415,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://rawcdn.githack.com/nightrose-labs/quartz/master/1/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df/index.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1400,
-    "title": "Taming.io",
-    "slug": "taming-io",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1400.png",
-    "jsdelivrUrl": "https://taming.io",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-000@main/g/1399/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16571,19 +16427,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1401.png",
-    "jsdelivrUrl": "https://html5.gamemonetize.co/2fp4sd31llh6u6vjxe1wxbx8meapsgop/",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1402,
-    "title": "Little Alchemy 2",
-    "slug": "little-alchemy-2",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1402.png",
-    "jsdelivrUrl": "https://littlealchemy2.com",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-004@main/g/1401/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16595,7 +16439,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1403.png",
-    "jsdelivrUrl": "https://www.miniplay.com/embed/ovo-dimensions",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-002@main/g/1403/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16607,19 +16451,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1404.png",
-    "jsdelivrUrl": "https://13582048327635951979.playables.usercontent.goog/v/assets/index.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1405,
-    "title": "Alien Shooter",
-    "slug": "alien-shooter",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1405.jpg",
-    "jsdelivrUrl": "https://16702553337040190672.playables.usercontent.goog/v/assets/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-004@main/g/1404/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16631,19 +16463,7 @@
     "category": [],
     "special": [],
     "thumb": "",
-    "jsdelivrUrl": "https://js13kgames.com/games/the-chroma-incident/index.html",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1407,
-    "title": "Dino Run 3d",
-    "slug": "dino-run-3d",
-    "category": [],
-    "special": [],
-    "thumb": "",
-    "jsdelivrUrl": "https://russell2259.github.io/dino3d/",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-001@main/g/1406/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16655,7 +16475,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1408.png",
-    "jsdelivrUrl": "https://moonlight.silvereen.net/src/static/games/jacksmith/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-000@main/g/1408/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
@@ -16667,19 +16487,7 @@
     "category": [],
     "special": [],
     "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1409.png",
-    "jsdelivrUrl": "https://jcw87.github.io/c2-sans-fight/",
-    "cdnBase": "",
-    "author": "",
-    "authorLink": ""
-  },
-  {
-    "id": 1410,
-    "title": "Subway Surfers: Singapore",
-    "slug": "subway-surfers-singapore",
-    "category": [],
-    "special": [],
-    "thumb": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-covers-misc@main/c/1410.png",
-    "jsdelivrUrl": "https://rawcdn.githack.com/CybriaTech/Opium/main/games/subway-surfers-singapore/index.html",
+    "jsdelivrUrl": "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-games-misc-004@main/g/1409/index.html",
     "cdnBase": "",
     "author": "",
     "authorLink": ""
