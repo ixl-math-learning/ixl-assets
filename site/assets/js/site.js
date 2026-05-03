@@ -384,6 +384,8 @@
         '<script>(function(){try{' +
           'var SELS=' + JSON.stringify(stripSels) + ';' +
           'function nuke(){try{document.querySelectorAll(SELS).forEach(function(n){try{n.parentNode&&n.parentNode.removeChild(n);}catch(e){}});}catch(e){}}' +
+          'function fixFrame(f){try{var s=f.getAttribute("src");if(!s||/^(?:about:|data:|blob:|javascript:|#)/.test(s))return;if(f._vnlFixed)return;f._vnlFixed=true;var u;try{u=new URL(s,document.baseURI||location.href).href;}catch(e){return;}fetch(u).then(function(r){return r.ok?r.text():null;}).then(function(h){if(h==null)return;try{f.removeAttribute("src");f.srcdoc=h;}catch(e){}}).catch(function(){});}catch(e){}}' +
+          'function fixAllFrames(){try{document.querySelectorAll("iframe[src]").forEach(fixFrame);}catch(e){}}' +
           'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2|adinplay\\.com|adsby|adnxs|amazon-adsystem|criteo|outbrain|taboola|mochiads\\.com|mochibot\\.com|mochi\\.com|mochimedia/i;' +
           'function isBad(u){try{return BAD.test(String(u||""));}catch(e){return false;}}' +
           'var op=Element.prototype.appendChild;Element.prototype.appendChild=function(c){try{if(c&&(c.tagName==="SCRIPT"||c.tagName==="IFRAME")&&c.src&&isBad(c.src))return c;}catch(e){}return op.call(this,c);};' +
@@ -391,9 +393,9 @@
           'try{var sa=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){try{if((n==="src"||n==="href")&&isBad(v)){return;}}catch(e){}return sa.call(this,n,v);};}catch(e){}' +
           'try{var XO=window.XMLHttpRequest&&window.XMLHttpRequest.prototype.open;if(XO){window.XMLHttpRequest.prototype.open=function(m,u){if(isBad(u)){this._vnl_blocked=true;return XO.call(this,m,"about:blank");}return XO.apply(this,arguments);};}}catch(e){}' +
           'try{var OF=window.fetch;if(OF){window.fetch=function(req,init){var u=req&&req.url||req;if(isBad(u))return Promise.reject(new Error("blocked"));return OF.apply(this,arguments);};}}catch(e){}' +
-          'nuke();' +
-          'if(window.MutationObserver){try{new MutationObserver(nuke).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}}' +
-          'setInterval(nuke,1500);' +
+          'nuke();fixAllFrames();' +
+          'if(window.MutationObserver){try{new MutationObserver(function(){nuke();fixAllFrames();}).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}}' +
+          'setInterval(function(){nuke();fixAllFrames();},1500);' +
         '}catch(e){}})();<\/script>';
       var fallbackCss = '<style id="vn-base">html,body{margin:0;padding:0;height:100%;min-height:100vh;background:#000;color:#fff;font-family:system-ui,sans-serif}body>embed,body>object,body>iframe,body>canvas{width:100% !important;height:100% !important;display:block}embed[src*=".swf"],object[data*=".swf"]{width:100% !important;height:100% !important;min-height:100vh}ruffle-object,ruffle-embed,ruffle-player{width:100% !important;height:100% !important;display:block}</style>';
       var inject = fallbackCss + '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
