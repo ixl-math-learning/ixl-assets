@@ -394,7 +394,7 @@
       var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
-      var needsRealUrl = /createUnityInstance|UnityLoader|\.framework\.js|\.unityweb|\.loader\.js|Module\["streaming|streamingAssetsUrl|new URL\([^)]*document\.(?:URL|location|baseURI)|new Worker\(|new SharedWorker\(|importScripts\(|Build\/[^"']+\.js/i.test(html);
+      var needsRealUrl = /createUnityInstance|UnityLoader|\.unityweb/i.test(html);
       iframe.removeAttribute('srcdoc');
       iframe.removeAttribute('src');
       if (needsRealUrl) {
