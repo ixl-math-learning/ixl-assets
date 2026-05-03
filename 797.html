@@ -131,8 +131,8 @@ function getParts(file, start, end) {
     return parts;
 }
 Promise.all([
-    mergeFiles(getParts("fih.pck", 1, 2)),
-    mergeFiles(getParts("fih.wasm", 1, 2))
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-851/m/gh/InsayneBoko/fih-port/latest/port/fih.pck.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-855/m/gh/InsayneBoko/fih-port/latest/port/fih.pck.part2"]),
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-851/m/gh/InsayneBoko/fih-port/latest/port/fih.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-849/m/gh/InsayneBoko/fih-port/latest/port/fih.wasm.part2"])
 ]).then(([pckUrl, wasmUrl]) => {
     window.fetch = async function (url, ...args) {
         if (url.endsWith("fih.pck")) {

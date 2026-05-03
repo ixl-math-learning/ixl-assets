@@ -71,8 +71,8 @@
 				container.style.height = window.innerHeight + "px";
 			}
 			Promise.all([
-				mergeFiles(getParts("Build/jellydrift.data.unityweb", 1, 3)),
-        mergeFiles(getParts("Build/jellydrift.wasm.code.unityweb", 1, 2)),
+				mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-579/m/gh/genizy/web-port/main/jelly-drift/Build/jellydrift.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-580/m/gh/genizy/web-port/main/jelly-drift/Build/jellydrift.data.unityweb.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-578/m/gh/genizy/web-port/main/jelly-drift/Build/jellydrift.data.unityweb.part3"]),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-584/m/gh/genizy/web-port/main/jelly-drift/Build/jellydrift.wasm.code.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-575/m/gh/genizy/web-port/main/jelly-drift/Build/jellydrift.wasm.code.unityweb.part2"]),
 			]).then(([dataUrl, wasmurl]) => {
 				window.dataUrll = dataUrl;
         window.wasmurll = wasmurl;

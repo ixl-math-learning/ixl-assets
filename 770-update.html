@@ -336,7 +336,7 @@ var loadingText = document.querySelector("#loading-text");
     }
     (async () => {
       const [dataUrl] = await Promise.all([
-        mergeFiles(getParts("srb2.data", 1, 9), "srb2.data"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-750/m/gh/web-ports/srb2/main/srb2.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-752/m/gh/web-ports/srb2/main/srb2.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-753/m/gh/web-ports/srb2/main/srb2.data.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-752/m/gh/web-ports/srb2/main/srb2.data.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-753/m/gh/web-ports/srb2/main/srb2.data.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-754/m/gh/web-ports/srb2/main/srb2.data.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-755/m/gh/web-ports/srb2/main/srb2.data.part7", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-754/m/gh/web-ports/srb2/main/srb2.data.part8", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-751/m/gh/web-ports/srb2/main/srb2.data.part9"], "srb2.data"),
       ]);
     const originalFetch = window.fetch;
     window.fetch = async (...args) => {

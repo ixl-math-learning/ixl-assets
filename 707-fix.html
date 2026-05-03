@@ -102,8 +102,8 @@
     }
     (async () => {
       const [dataUrl, wasmUrl] = await Promise.all([
-        mergeFiles(getParts("Build/6d41885525432ff3b29106e00c136a2e.data.br", 1, 3), "6d41885525432ff3b29106e00c136a2e.data.br"),
-        mergeFiles(getParts("Build/253cc6f68dece82b7c6005da0838880d.wasm.br", 1, 3), "253cc6f68dece82b7c6005da0838880d.wasm.br"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-657/m/gh/genizy/traffic-racer/main/Build/6d41885525432ff3b29106e00c136a2e.data.br.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-658/m/gh/genizy/traffic-racer/main/Build/6d41885525432ff3b29106e00c136a2e.data.br.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-655/m/gh/genizy/traffic-racer/main/Build/6d41885525432ff3b29106e00c136a2e.data.br.part3"], "6d41885525432ff3b29106e00c136a2e.data.br"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-647/m/gh/genizy/traffic-racer/main/Build/253cc6f68dece82b7c6005da0838880d.wasm.br.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-651/m/gh/genizy/traffic-racer/main/Build/253cc6f68dece82b7c6005da0838880d.wasm.br.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-644/m/gh/genizy/traffic-racer/main/Build/253cc6f68dece82b7c6005da0838880d.wasm.br.part3"], "253cc6f68dece82b7c6005da0838880d.wasm.br"),
       ]);
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var phoneScreenFixer = document.createElement('meta');

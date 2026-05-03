@@ -74,8 +74,8 @@ function getParts(file, start, end) {
             container.style.height = window.innerHeight + "px";
         }
         Promise.all([
-            mergeFiles(getParts("Build/build.data", 1, 3)),
-            mergeFiles(getParts("Build/build.wasm", 1, 2)),
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-461/m/gh/genizy/web-port/main/the-man-in-the-window/Build/build.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-462/m/gh/genizy/web-port/main/the-man-in-the-window/Build/build.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-462/m/gh/genizy/web-port/main/the-man-in-the-window/Build/build.data.part3"]),
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-463/m/gh/genizy/web-port/main/the-man-in-the-window/Build/build.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-464/m/gh/genizy/web-port/main/the-man-in-the-window/Build/build.wasm.part2"]),
         ]).then(([dataUrl, wasmurl]) => {
             const canvas = document.querySelector("#unity-canvas");
             const loadingtext = document.querySelector("#loading-text");

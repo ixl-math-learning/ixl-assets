@@ -13,7 +13,7 @@
 <body>
   <canvas id="unity-canvas" tabindex="-1"></canvas>
   <script>
-    const BASE_URL = "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-075/m/gh/shayderrr/portsv4/6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/";
+    const BASE_URL = "";
     const canvas = document.getElementById("unity-canvas");
 
     function resize() {
@@ -35,8 +35,8 @@
 
     (async () => {
       try {
-        const dataParts = ["StickWithItPort.data.part1", "StickWithItPort.data.part2"];
-        const wasmParts = ["StickWithItPort.wasm.part1", "StickWithItPort.wasm.part2"];
+        const dataParts = ["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-567/m/gh/shayderrr/portsv4/6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/StickWithItPort.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-568/m/gh/shayderrr/portsv4/6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/StickWithItPort.data.part2"];
+        const wasmParts = ["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-568/m/gh/shayderrr/portsv4/6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/StickWithItPort.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-569/m/gh/shayderrr/portsv4/6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/StickWithItPort.wasm.part2"];
 
         const [mergedDataUrl, mergedWasmUrl] = await Promise.all([
           fetchAndMerge(dataParts),
@@ -44,11 +44,11 @@
         ]);
 
         const script = document.createElement("script");
-        script.src = BASE_URL + "StickWithItPort.loader.js";
+        script.src = "https://cdn.jsdelivr.net/gh/shayderrr/portsv4@6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/StickWithItPort.loader.js";
         script.onload = () => {
           createUnityInstance(canvas, {
             dataUrl: mergedDataUrl,
-            frameworkUrl: BASE_URL + "StickWithItPort.framework.js",
+            frameworkUrl: "https://cdn.jsdelivr.net/gh/shayderrr/portsv4@6542ad4a02294cc773642ca7f7a8f75683c45fe7/stick/Build/StickWithItPort.framework.js",
             codeUrl: mergedWasmUrl,
             streamingAssetsUrl: "StreamingAssets",
             companyName: "Trickshot Labs",

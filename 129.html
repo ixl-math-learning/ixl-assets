@@ -69,7 +69,7 @@
                     fetchPart(0);
                 });
             }
-            var parts = ["Build/V0.1.wasm.part1", "Build/V0.1.wasm.part2"];
+            var parts = ["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-375/m/gh/freebuisness/assets/main/129/Build/V0.1.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-376/m/gh/freebuisness/assets/main/129/Build/V0.1.wasm.part2"];
             Promise.all([
                 mergeFiles(parts)
             ]).then(([mergedUrl]) => {

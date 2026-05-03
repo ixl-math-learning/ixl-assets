@@ -76,9 +76,9 @@
       loadingCover.style.display = "";
 
       const partUrls = [
-        baseUrl + "SREK.data.unityweb.part1",
-        baseUrl + "SREK.data.unityweb.part2",
-        baseUrl + "SREK.data.unityweb.part3"
+        "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-758/m/gh/shayderrr/newports/501858e7d2d24dad4467463cdad972db0b19cd37/fivenightsatshrek/Build/SREK.data.unityweb.part1",
+        "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-759/m/gh/shayderrr/newports/501858e7d2d24dad4467463cdad972db0b19cd37/fivenightsatshrek/Build/SREK.data.unityweb.part2",
+        "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-759/m/gh/shayderrr/newports/501858e7d2d24dad4467463cdad972db0b19cd37/fivenightsatshrek/Build/SREK.data.unityweb.part3"
       ];
 
       Promise.all(partUrls.map(url => fetch(url).then(res => res.arrayBuffer())))

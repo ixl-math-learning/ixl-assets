@@ -187,8 +187,8 @@ body {
       return parts;
     }
 Promise.all([
-    mergeFiles(getParts("index.pck", 1, 3)),
-    mergeFiles(getParts("index.wasm", 1, 2)),
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-734/m/gh/genizy/google-class/main/bart-blast/index.pck.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-736/m/gh/genizy/google-class/main/bart-blast/index.pck.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-734/m/gh/genizy/google-class/main/bart-blast/index.pck.part3"]),
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-735/m/gh/genizy/google-class/main/bart-blast/index.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-746/m/gh/genizy/google-class/main/bart-blast/index.wasm.part2"]),
 ]).then(([pckUrl, wasmUrl]) => {
     window.fetch = async function (url, ...args) {
         if (url.endsWith("index.pck")) {

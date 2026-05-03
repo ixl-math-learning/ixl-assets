@@ -81,8 +81,8 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("Build/ultrakill.data.unityweb", 1, 4)),
-            mergeFiles(getParts("Build/ultrakill.wasm.unityweb", 1, 2))
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-371/m/gh/genizy/web-port/master/ultrakill/Build/ultrakill.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-374/m/gh/genizy/web-port/master/ultrakill/Build/ultrakill.data.unityweb.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-372/m/gh/genizy/web-port/master/ultrakill/Build/ultrakill.data.unityweb.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-370/m/gh/genizy/web-port/master/ultrakill/Build/ultrakill.data.unityweb.part4"]),
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-377/m/gh/genizy/web-port/master/ultrakill/Build/ultrakill.wasm.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-375/m/gh/genizy/web-port/master/ultrakill/Build/ultrakill.wasm.unityweb.part2"])
         ]).then(([dataUrl, wasmurl]) => {
             document.querySelector("#unity-canvas").hidden = false;
             createUnityInstance(document.querySelector("#unity-canvas"), {

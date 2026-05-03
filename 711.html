@@ -424,7 +424,7 @@
       return parts;
   }
           Promise.all([
-            mergeFiles(getParts("runner.data", 1, 2)),
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-720/m/gh/web-ports/antonblast/main/runner.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-719/m/gh/web-ports/antonblast/main/runner.data.part2"]),
         ]).then(([runners]) => {
       window.runnerdata = runners;
 

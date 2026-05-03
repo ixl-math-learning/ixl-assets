@@ -131,8 +131,8 @@
     }
     (async () => {
       const [dataUrl, wasmUrl] = await Promise.all([
-        mergeFiles(getParts("Build/escape-road-3-v26041006.data", 1, 7), "escape-road-3-v26041006.data"),
-        mergeFiles(getParts("Build/escape-road-3-v26041006.wasm", 1, 3), "escape-road-3-v26041006.wasm")
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-841/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-847/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-843/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-842/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-846/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-842/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-839/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.data.part7"], "escape-road-3-v26041006.data"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-844/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-845/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-843/m/gh/genizy/escape-road-3/main/Build/escape-road-3-v26041006.wasm.part3"], "escape-road-3-v26041006.wasm")
       ]);
 
 		var buildUrl = "Build";

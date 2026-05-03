@@ -116,8 +116,8 @@
     }
     (async () => {
       const [wasmUrl, dataUrl] = await Promise.all([
-        mergeFiles(getParts("Build/brawl.wasm", 1, 4), "brawl.wasm"),
-        mergeFiles(getParts("Build/brawl.data", 1, 2), "brawl.data"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-745/m/gh/genizy/google-class/main/brawl-3d/Build/brawl.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-744/m/gh/genizy/google-class/main/brawl-3d/Build/brawl.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-743/m/gh/genizy/google-class/main/brawl-3d/Build/brawl.wasm.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-742/m/gh/genizy/google-class/main/brawl-3d/Build/brawl.wasm.part4"], "brawl.wasm"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-750/m/gh/genizy/google-class/main/brawl-3d/Build/brawl.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-751/m/gh/genizy/google-class/main/brawl-3d/Build/brawl.data.part2"], "brawl.data"),
       ]);
         const hideFullScreenButton = "";
         const buildUrl = "Build";

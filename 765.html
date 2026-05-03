@@ -140,7 +140,7 @@ function loadScript(url) {
 
     const [dataUrl, wasmUrl, frameworkUrl] = await Promise.all([
       mergeFiles([base + "Build/Builds.data.br"]),
-      mergeFiles([base + "Build/Builds.wasm.br.part1", base + "Build/Builds.wasm.br.part2"]),
+      mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-762/m/gh/shayderrr/idk/2d3cf8131a7cd9525c77b35f421c7100c2682d65/scary/Build/Builds.wasm.br.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-762/m/gh/shayderrr/idk/2d3cf8131a7cd9525c77b35f421c7100c2682d65/scary/Build/Builds.wasm.br.part2"]),
       mergeFiles([base + "Build/Builds.framework.js.br"])
     ]);
 

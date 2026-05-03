@@ -80,7 +80,7 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("Build/Build.wasm", 1, 3))
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-404/m/gh/genizy/web-port/main/kindergarten/1/Build/Build.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-407/m/gh/genizy/web-port/main/kindergarten/1/Build/Build.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-404/m/gh/genizy/web-port/main/kindergarten/1/Build/Build.wasm.part3"])
         ]).then(([wasmUrl]) => {
             container.hidden = false;
             var buildUrl = "Build";

@@ -21,8 +21,8 @@
     </div>
     <script>
       Promise.all([
-          window.mergeFiles(window.getParts("Build.data", 1, 2)),
-          window.mergeFiles(window.getParts("Build.wasm", 1, 2)),
+          window.mergeFiles(window.["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-400/m/gh/freebuisness/assets/main/347/Build.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-401/m/gh/freebuisness/assets/main/347/Build.data.part2"]),
+          window.mergeFiles(window.["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-401/m/gh/freebuisness/assets/main/347/Build.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-402/m/gh/freebuisness/assets/main/347/Build.wasm.part2"]),
       ]).then(([wasmUrl, dataUrl]) => {
         var buildUrl = "Build";
         var loaderUrl ="Build.loader.js";

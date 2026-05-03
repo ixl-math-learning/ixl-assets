@@ -241,7 +241,7 @@
             loadingtext.textContent = "LOADING... (" + doneparts + "/" + maxparts + ")";
             return parts;
         }
-        mergeFiles(getParts("game.zip", 1, 7)).then(async url => {
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-626/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-625/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-627/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-627/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-628/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-628/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-626/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part7"]).then(async url => {
             window.gameZipURL = url;
             let renpypre = document.createElement("script");
             renpypre.src = "renpy-pre.js"

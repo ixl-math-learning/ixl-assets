@@ -85,7 +85,7 @@
         }
         (async () => {
             const [dataUrl] = await Promise.all([
-                mergeFiles(getParts("Build/gtagwebR2.data.unityweb", 1, 8), "gtagwebR2.data.unityweb"),
+                mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-629/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-629/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-630/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-631/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-631/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-632/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-633/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part7", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-630/m/gh/web-ports/gorilla-tag/latest/Build/gtagwebR2.data.unityweb.part8"], "gtagwebR2.data.unityweb"),
             ]);
             var buildUrl = "Build";
       var loaderUrl = buildUrl + "/gtagwebR2.loader.js";

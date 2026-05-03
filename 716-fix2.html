@@ -73,8 +73,8 @@
     }
     (async () => {
       const [dataUrl, wasmUrl] = await Promise.all([
-        mergeFiles(getParts("Build/CloverPit.data", 1, 3), "CloverPit.data"),
-        mergeFiles(getParts("Build/CloverPit.wasm", 1, 3), "CloverPit.wasm"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-668/m/gh/web-ports/clover-pit/main/Build/CloverPit.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-667/m/gh/web-ports/clover-pit/main/Build/CloverPit.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-663/m/gh/web-ports/clover-pit/main/Build/CloverPit.data.part3"], "CloverPit.data"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-667/m/gh/web-ports/clover-pit/main/Build/CloverPit.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-668/m/gh/web-ports/clover-pit/main/Build/CloverPit.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-665/m/gh/web-ports/clover-pit/main/Build/CloverPit.wasm.part3"], "CloverPit.wasm"),
       ]);
 
       var container = document.querySelector("#unity-container");

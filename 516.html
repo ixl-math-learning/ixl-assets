@@ -64,8 +64,8 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("Build/OshiOshiPunch_WebGL.wasm", 1, 2)),
-            mergeFiles(getParts("Build/OshiOshiPunch_WebGL.data", 1, 2))
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-571/m/gh/genizy/biologyexams/main/oshi-oshi-punch/Build/OshiOshiPunch_WebGL.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-573/m/gh/genizy/biologyexams/main/oshi-oshi-punch/Build/OshiOshiPunch_WebGL.wasm.part2"]),
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-576/m/gh/genizy/biologyexams/main/oshi-oshi-punch/Build/OshiOshiPunch_WebGL.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-575/m/gh/genizy/biologyexams/main/oshi-oshi-punch/Build/OshiOshiPunch_WebGL.data.part2"])
         ]).then(([wasmUrl, dataUrl]) => {
           document.querySelector("#unity-container").removeAttribute("hidden");
       var container = document.querySelector("#unity-container");

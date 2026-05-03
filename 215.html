@@ -90,7 +90,7 @@
             container.style.height = window.innerHeight + "px";
         }
         Promise.all([
-            mergeFiles(getParts("Build/BATIM.data.unityweb", 1, 7))
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-373/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-375/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-373/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-376/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-379/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-377/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-374/m/gh/genizy/web-port/main/bendy/Build/BATIM.data.unityweb.part7"])
         ]).then(([dataUrl]) => {
             window.dataUrll = dataUrl;
             var json = {

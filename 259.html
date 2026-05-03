@@ -183,7 +183,7 @@
                 }
                 return parts;
             }
-            mergeFiles(getParts("game.zip", 1, 2)).then(async url => {
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-378/m/gh/genizy/web-port/main/class-of-09/game.zip.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-383/m/gh/genizy/web-port/main/class-of-09/game.zip.part2"]).then(async url => {
                 window.gameZipUrl = url;
                 let renpypre = document.createElement("script");
                 renpypre.src = "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-162@main/m/gh/genizy/web-port/725a19f20c3f376529284c9f86299581719e8d19/class-of-09/renpy-pre.js"

@@ -116,8 +116,8 @@ function getParts(file, start, end) {
 				container.style.height = window.innerHeight + "px";
 			}
 			Promise.all([
-				mergeFiles(getParts("Build/Raft-WEBGL.data.unityweb", 1, 3)),
-        mergeFiles(getParts("Build/Raft-WEBGL.asm.code.unityweb", 1, 2)),
+				mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-458/m/gh/genizy/web-port/main/raft/Build/Raft-WEBGL.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-459/m/gh/genizy/web-port/main/raft/Build/Raft-WEBGL.data.unityweb.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-458/m/gh/genizy/web-port/main/raft/Build/Raft-WEBGL.data.unityweb.part3"]),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-457/m/gh/genizy/web-port/main/raft/Build/Raft-WEBGL.asm.code.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-459/m/gh/genizy/web-port/main/raft/Build/Raft-WEBGL.asm.code.unityweb.part2"]),
 			]).then(([dataUrl, asmCode]) => {
 				window.dataUrll = dataUrl;
         window.asmUrll = asmCode;

@@ -75,10 +75,10 @@
       window.unityMergedFiles = {};
       
       Promise.all([
-        mergeFiles(getParts("Build/game.data.unityweb", 1, 2)),
-        mergeFiles(getParts("Build/game.asm.code.unityweb", 1, 1)), 
-        mergeFiles(getParts("Build/game.asm.memory.unityweb", 1, 1)),
-        mergeFiles(getParts("Build/game.asm.framework.unityweb", 1, 1))
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-636/m/gh/bubbls/UGS-Assets/main/flight%20sim/Build/game.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-633/m/gh/bubbls/UGS-Assets/main/flight%20sim/Build/game.data.unityweb.part2"]),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-632/m/gh/bubbls/UGS-Assets/main/flight%20sim/Build/game.asm.code.unityweb.part1"]), 
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-640/m/gh/bubbls/UGS-Assets/main/flight%20sim/Build/game.asm.memory.unityweb.part1"]),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-654/m/gh/bubbls/UGS-Assets/main/flight%20sim/Build/game.asm.framework.unityweb.part1"])
       ]).then(([dataBlob, wasmCodeBlob, wasmMemoryBlob, wasmFrameworkBlob]) => {
         window.unityMergedFiles['Build/game.data.unityweb'] = URL.createObjectURL(dataBlob);
         window.unityMergedFiles['Build/game.asm.code.unityweb'] = URL.createObjectURL(wasmCodeBlob);

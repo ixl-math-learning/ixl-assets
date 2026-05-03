@@ -399,7 +399,7 @@
       return parts;
   }
 
-  mergeFiles(getParts("game.unx", 1, 9)).then(async url => {
+  mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-410/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-411/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-412/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-411/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-413/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-414/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-413/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part7", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-414/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part8", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-415/m/gh/genizy/web-port/main/andys-apple-farm/game.unx.part9"]).then(async url => {
       window.gameUnxUrl = url;
 
       const originalFetch = window.fetch;

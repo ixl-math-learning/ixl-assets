@@ -80,7 +80,7 @@
         }
 
         Promise.all([
-            mergeFiles(getParts("Build/YandereSim.data.unityweb", 1, 5)),
+            mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-581/m/gh/genizy/web-port/master/yandere-simulator/Build/YandereSim.data.unityweb.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-581/m/gh/genizy/web-port/master/yandere-simulator/Build/YandereSim.data.unityweb.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-582/m/gh/genizy/web-port/master/yandere-simulator/Build/YandereSim.data.unityweb.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-583/m/gh/genizy/web-port/master/yandere-simulator/Build/YandereSim.data.unityweb.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-578/m/gh/genizy/web-port/master/yandere-simulator/Build/YandereSim.data.unityweb.part5"]),
         ]).then(([dataUrl]) => {
             const json = {
                 companyName: "YandereDev",

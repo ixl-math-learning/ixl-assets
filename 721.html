@@ -120,8 +120,8 @@
     }
     (async () => {
       const [dataUrl, wasmUrl] = await Promise.all([
-        mergeFiles(getParts("Build/ShiftAtMidnightPort.data", 1, 5), "ShiftAtMidnightPort.data"),
-        mergeFiles(getParts("Build/ShiftAtMidnightPort.wasm", 1, 2), "ShiftAtMidnightPort.wasm"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-721/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-717/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-718/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.data.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-721/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.data.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-718/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.data.part5"], "ShiftAtMidnightPort.data"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-728/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-730/m/gh/slqntdevss/ShiftAtMidnightPort/9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/Build/ShiftAtMidnightPort.wasm.part2"], "ShiftAtMidnightPort.wasm"),
       ]);
 
       var container = document.querySelector("#unity-container");

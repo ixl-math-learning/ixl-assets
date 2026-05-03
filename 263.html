@@ -61,7 +61,7 @@
 
         function runQuake3() {
             Promise.all([
-                mergeFiles(getParts("Quake3.js", 1, 3))
+                mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-454/m/gh/genizy/Quake3/master/Quake3.js.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-454/m/gh/genizy/Quake3/master/Quake3.js.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-456/m/gh/genizy/Quake3/master/Quake3.js.part3"])
             ]).then(([quake3jsmerged]) => {
                 try {
 					document.querySelector("#loading-text").remove();

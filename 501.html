@@ -91,8 +91,8 @@
 				return parts;
 			}
 			Promise.all([
-				mergeFiles(getParts("Build/Kindergarten3Port.data", 1, 2)),
-				mergeFiles(getParts("Build/Kindergarten3Port.wasm", 1, 3)),
+				mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-577/m/gh/slqntdevss/Kindergarten3Port/HEAD/Build/Kindergarten3Port.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-575/m/gh/slqntdevss/Kindergarten3Port/HEAD/Build/Kindergarten3Port.data.part2"]),
+				mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-578/m/gh/slqntdevss/Kindergarten3Port/HEAD/Build/Kindergarten3Port.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-579/m/gh/slqntdevss/Kindergarten3Port/HEAD/Build/Kindergarten3Port.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-576/m/gh/slqntdevss/Kindergarten3Port/HEAD/Build/Kindergarten3Port.wasm.part3"]),
 			]).then(([dataUrl, wasmUrl]) => {
 				container.hidden = false;
 				var buildUrl = "Build";
