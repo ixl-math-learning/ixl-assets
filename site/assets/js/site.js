@@ -362,8 +362,19 @@
         'button[onclick*="ullscreen"],button[onclick*="screenfulRequest"],' +
         'button.cordialfullscreen,button.fullscreenIcon,button.gd-fullscreen-button,' +
         'button.crazy-fullscreen,#sidebarad1,#sidebarad2,#sidebar-ad-1,#sidebar-ad-2,' +
-        '.sidebar-ad,.ads-side,.gameTitleBar,.cm-titlebar' +
-        '{display:none !important;}' +
+        '.sidebar-ad,.ads-side,.gameTitleBar,.cm-titlebar,' +
+        '#dialog-wrapper,#dialog_wrapper,#sound-on-confirmation-dialog,' +
+        '#close_confirmation_dialog,#close-confirmation-dialog,' +
+        '#reward_close_button_widget,#reward-close-button-widget,' +
+        '#ad_position_box,#ad-position-box,#ad_iframe_container,' +
+        '#count_down_container,#count-down-container,' +
+        '#close_video_button,#resume_video_button,' +
+        '#cancel-video-button,#continue-video-button,' +
+        '[id^="google_ads_iframe"],[class*="GoogleActiveView"],' +
+        '#aswift_0,#aswift_1,#aswift_2,#aswift_3,#aswift_4,#aswift_5,' +
+        'ins.adsbygoogle,div[data-ad-slot],div[data-magicword],' +
+        '.skip-button,.ad-overlay,.ad-container,.ad-banner,#ad-container,#ad-banner' +
+        '{display:none !important;visibility:hidden !important;pointer-events:none !important;}' +
         '</style>';
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
