@@ -394,11 +394,15 @@
       var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
-      var needsRealUrl = /createUnityInstance|UnityLoader|\.unityweb/i.test(html);
+      var needsRealUrl = /createUnityInstance|UnityLoader|\.unityweb|\.loader\.js/i.test(html);
       iframe.removeAttribute('srcdoc');
       iframe.removeAttribute('src');
       if (needsRealUrl) {
-        iframe.src = gameUrl + (gameUrl.indexOf('?') === -1 ? '?' : '&') + 'cb=' + Date.now();
+        var srcUrl = gameUrl.replace(
+          /^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)@([^/]+)\/(.*)$/,
+          'https://rawcdn.githack.com/$1/$2/$3/$4'
+        );
+        iframe.src = srcUrl + (srcUrl.indexOf('?') === -1 ? '?' : '&') + 'cb=' + Date.now();
       } else {
         iframe.srcdoc = html;
       }
@@ -415,11 +419,19 @@
     if (!b) return;
     if (b.id === 'fullscreenBtn') {
       var c = document.getElementById('embedContainer');
-      var p = c.requestFullscreen ? c.requestFullscreen() :
-              c.webkitRequestFullscreen ? c.webkitRequestFullscreen() :
-              c.mozRequestFullScreen ? c.mozRequestFullScreen() :
-              c.msRequestFullscreen ? c.msRequestFullscreen() : null;
-      if (p && p.catch) p.catch(function () {});
+      function applyPseudo() {
+        c.classList.toggle('vnl-pseudo-fs');
+        document.body.classList.toggle('vnl-pseudo-fs-active');
+      }
+      var fsApi = c.requestFullscreen || c.webkitRequestFullscreen || c.mozRequestFullScreen || c.msRequestFullscreen;
+      if (fsApi) {
+        try {
+          var p = fsApi.call(c);
+          if (p && p.catch) p.catch(function () { applyPseudo(); });
+        } catch (e) { applyPseudo(); }
+      } else {
+        applyPseudo();
+      }
     } else if (b.id === 'refreshBtn') {
       var f = document.getElementById('gameFrame');
       var doc = f.getAttribute('srcdoc');

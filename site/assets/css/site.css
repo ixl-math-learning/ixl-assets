@@ -120,6 +120,11 @@ body.mode-play .ad-side-rail{display:none}
 
 .embed-container:fullscreen,.embed-container:-webkit-full-screen{border-radius:0;border:none;max-width:100%;margin:0}
 .embed-container:fullscreen iframe,.embed-container:-webkit-full-screen iframe{height:calc(100vh - 3.125vw)}
+.embed-container.vnl-pseudo-fs{position:fixed !important;inset:0 !important;width:100vw !important;height:100vh !important;max-width:none !important;margin:0 !important;border:none !important;border-radius:0 !important;z-index:99999 !important;background:#000}
+.embed-container.vnl-pseudo-fs .frame-wrap{height:100%}
+.embed-container.vnl-pseudo-fs iframe{width:100% !important;height:100% !important}
+.embed-container.vnl-pseudo-fs .bottom-div{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.55)}
+body.vnl-pseudo-fs-active{overflow:hidden}
 
 .static-content{max-width:780px;margin:0 auto;padding:1.5rem;line-height:1.7;color:rgba(255,255,255,.78)}
 .static-content h1{margin-bottom:1.5rem}
