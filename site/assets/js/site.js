@@ -378,8 +378,14 @@
         '</style>';
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
+      var needsRealUrl = /createUnityInstance|UnityLoader\.|\.framework\.js|\.unityweb|new URL\([^)]*document\.(?:URL|location)|new Worker\(/i.test(html);
+      iframe.removeAttribute('srcdoc');
       iframe.removeAttribute('src');
-      iframe.srcdoc = html;
+      if (needsRealUrl) {
+        iframe.src = gameUrl + (gameUrl.indexOf('?') === -1 ? '?' : '&') + 'cb=' + Date.now();
+      } else {
+        iframe.srcdoc = html;
+      }
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
       setTimeout(function () { if (loading) loading.classList.add('hidden'); }, 8000);
     } catch (e) {
