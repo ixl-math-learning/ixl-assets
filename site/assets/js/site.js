@@ -355,6 +355,13 @@
         if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
         else html = baseTag + html;
       }
+      var basePathOnly = effectiveBase.replace(/^https?:\/\/[^/]+/, '');
+      if (basePathOnly && basePathOnly !== '/') {
+        var bp = basePathOnly.replace(/\/$/, '');
+        html = html.replace(/(\s(?:href|src|data|action|poster)\s*=\s*["'])\/(?!\/)([^"']*)/gi, function (_, lead, rest) {
+          return lead + bp + '/' + rest;
+        });
+      }
       var stripSels =
         'button[aria-label*="ullscreen" i],button[title*="ullscreen" i],' +
         'button.fullscreen,button.fullscreen-btn,button.fs-btn,button.fullscreenBtn,' +
