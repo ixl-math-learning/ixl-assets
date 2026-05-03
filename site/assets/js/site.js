@@ -392,16 +392,20 @@
           'setInterval(nuke,1500);' +
         '}catch(e){}})();<\/script>';
       var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
-      if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
-      else html = inject + html;
       var realUrl = gameUrl.replace(/[?#].*$/, '');
       var urlPolyfill = '<script>(function(){var R=' + JSON.stringify(realUrl) + ';' +
         'try{Object.defineProperty(document,"URL",{get:function(){return R;},configurable:true});}catch(e){}' +
         'try{Object.defineProperty(document,"documentURI",{get:function(){return R;},configurable:true});}catch(e){}' +
         'try{Object.defineProperty(window.location,"href",{get:function(){return R;},set:function(v){try{window.parent.postMessage({type:"vnl-nav",href:v},"*");}catch(e){}},configurable:true});}catch(e){}' +
         '})();<\/script>';
-      if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + urlPolyfill);
-      else html = urlPolyfill + html;
+      var combined = urlPolyfill + inject;
+      function injectIntoHead(h, content) {
+        if (/<head[^>]*>/i.test(h)) return h.replace(/<head([^>]*)>/i, '<head$1>' + content);
+        if (/<html[^>]*>/i.test(h)) return h.replace(/<html([^>]*)>/i, '<html$1><head>' + content + '</head>');
+        if (/<!doctype[^>]*>/i.test(h)) return h.replace(/<!doctype[^>]*>/i, function (m) { return m + '<html><head>' + content + '</head>'; });
+        return '<!doctype html><html><head>' + content + '</head>' + h;
+      }
+      html = injectIntoHead(html, combined);
       iframe.removeAttribute('src');
       iframe.srcdoc = html;
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
