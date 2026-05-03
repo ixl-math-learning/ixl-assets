@@ -394,18 +394,16 @@
       var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
-      var needsRealUrl = /createUnityInstance|UnityLoader|\.unityweb|\.loader\.js/i.test(html);
-      iframe.removeAttribute('srcdoc');
+      var realUrl = gameUrl.replace(/[?#].*$/, '');
+      var urlPolyfill = '<script>(function(){var R=' + JSON.stringify(realUrl) + ';' +
+        'try{Object.defineProperty(document,"URL",{get:function(){return R;},configurable:true});}catch(e){}' +
+        'try{Object.defineProperty(document,"documentURI",{get:function(){return R;},configurable:true});}catch(e){}' +
+        'try{Object.defineProperty(window.location,"href",{get:function(){return R;},set:function(v){try{window.parent.postMessage({type:"vnl-nav",href:v},"*");}catch(e){}},configurable:true});}catch(e){}' +
+        '})();<\/script>';
+      if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + urlPolyfill);
+      else html = urlPolyfill + html;
       iframe.removeAttribute('src');
-      if (needsRealUrl) {
-        var srcUrl = gameUrl.replace(
-          /^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)@([^/]+)\/(.*)$/,
-          'https://rawcdn.githack.com/$1/$2/$3/$4'
-        );
-        iframe.src = srcUrl + (srcUrl.indexOf('?') === -1 ? '?' : '&') + 'cb=' + Date.now();
-      } else {
-        iframe.srcdoc = html;
-      }
+      iframe.srcdoc = html;
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
       setTimeout(function () { if (loading) loading.classList.add('hidden'); }, 8000);
     } catch (e) {
