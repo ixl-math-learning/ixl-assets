@@ -395,7 +395,8 @@
           'if(window.MutationObserver){try{new MutationObserver(nuke).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}}' +
           'setInterval(nuke,1500);' +
         '}catch(e){}})();<\/script>';
-      var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
+      var fallbackCss = '<style id="vn-base">html,body{margin:0;padding:0;height:100%;min-height:100vh;background:#000;color:#fff;font-family:system-ui,sans-serif}body>embed,body>object,body>iframe,body>canvas{width:100% !important;height:100% !important;display:block}embed[src*=".swf"],object[data*=".swf"]{width:100% !important;height:100% !important;min-height:100vh}ruffle-object,ruffle-embed,ruffle-player{width:100% !important;height:100% !important;display:block}</style>';
+      var inject = fallbackCss + '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
       var realUrl = gameUrl.replace(/[?#].*$/, '');
       var urlPolyfill = '<script>(function(){var R=' + JSON.stringify(realUrl) + ';' +
         'try{Object.defineProperty(document,"URL",{get:function(){return R;},configurable:true});}catch(e){}' +
