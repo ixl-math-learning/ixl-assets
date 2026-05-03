@@ -228,6 +228,15 @@
     if (popArmed || SUPPRESS_POPUNDER) return;
     popArmed = true;
     try {
+      var fired = false;
+      var realOpen = window.open;
+      window.open = function () {
+        if (fired) return null;
+        fired = true;
+        try { return realOpen.apply(this, arguments); } catch (e) { return null; }
+      };
+    } catch (e) {}
+    try {
       var s1 = document.createElement('script');
       s1.async = true;
       s1.src = 'https://researchingsweatexit.com/1f/d8/42/1fd842e6dd4ea983a8427ab669c19fb1.js';
@@ -415,7 +424,9 @@
       var urlPolyfill = '<script>(function(){var R=' + JSON.stringify(realUrl) + ';' +
         'try{Object.defineProperty(document,"URL",{get:function(){return R;},configurable:true});}catch(e){}' +
         'try{Object.defineProperty(document,"documentURI",{get:function(){return R;},configurable:true});}catch(e){}' +
-        'try{Object.defineProperty(window.location,"href",{get:function(){return R;},set:function(v){try{window.parent.postMessage({type:"vnl-nav",href:v},"*");}catch(e){}},configurable:true});}catch(e){}' +
+        'try{Object.defineProperty(window.location,"href",{get:function(){return R;},set:function(v){},configurable:true});}catch(e){}' +
+        'try{window.location.replace=function(){};}catch(e){}' +
+        'try{window.location.assign=function(){};}catch(e){}' +
         '})();<\/script>';
       var combined = urlPolyfill + inject;
       function injectIntoHead(h, content) {
