@@ -384,7 +384,7 @@
         '<script>(function(){try{' +
           'var SELS=' + JSON.stringify(stripSels) + ';' +
           'function nuke(){try{document.querySelectorAll(SELS).forEach(function(n){try{n.parentNode&&n.parentNode.removeChild(n);}catch(e){}});}catch(e){}}' +
-          'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2|adinplay\\.com|adsby|adnxs|amazon-adsystem|criteo|outbrain|taboola/i;' +
+          'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2|adinplay\\.com|adsby|adnxs|amazon-adsystem|criteo|outbrain|taboola|mochiads\\.com|mochibot\\.com|mochi\\.com|mochimedia/i;' +
           'function isBad(u){try{return BAD.test(String(u||""));}catch(e){return false;}}' +
           'var op=Element.prototype.appendChild;Element.prototype.appendChild=function(c){try{if(c&&(c.tagName==="SCRIPT"||c.tagName==="IFRAME")&&c.src&&isBad(c.src))return c;}catch(e){}return op.call(this,c);};' +
           'var oi=Element.prototype.insertBefore;Element.prototype.insertBefore=function(c,r){try{if(c&&(c.tagName==="SCRIPT"||c.tagName==="IFRAME")&&c.src&&isBad(c.src))return c;}catch(e){}return oi.call(this,c,r);};' +
