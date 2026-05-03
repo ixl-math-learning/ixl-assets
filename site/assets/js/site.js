@@ -355,13 +355,18 @@
         if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
         else html = baseTag + html;
       }
-      var basePathOnly = effectiveBase.replace(/^https?:\/\/[^/]+/, '');
-      if (basePathOnly && basePathOnly !== '/') {
-        var bp = basePathOnly.replace(/\/$/, '');
-        html = html.replace(/(\s(?:href|src|data|action|poster)\s*=\s*["'])\/(?!\/)([^"']*)/gi, function (_, lead, rest) {
-          return lead + bp + '/' + rest;
-        });
-      }
+      try {
+        var basePathOnly = effectiveBase.replace(/^https?:\/\/[^/]+/, '');
+        if (basePathOnly && basePathOnly !== '/') {
+          var bp = basePathOnly.replace(/\/$/, '');
+          html = html.replace(/(\s(?:src|poster)\s*=\s*["'])\/(?!\/)([^"']*)/gi, function (_, lead, rest) {
+            return lead + bp + '/' + rest;
+          });
+          html = html.replace(/(\s(?:href)\s*=\s*["'])\/(?!\/)([^"' ]*\.(?:css|js|mjs|png|jpg|jpeg|gif|svg|webp|ico))/gi, function (_, lead, rest) {
+            return lead + bp + '/' + rest;
+          });
+        }
+      } catch (e) {}
       var stripSels =
         'button[aria-label*="ullscreen" i],button[title*="ullscreen" i],' +
         'button.fullscreen,button.fullscreen-btn,button.fs-btn,button.fullscreenBtn,' +
@@ -391,7 +396,7 @@
         '<script>(function(){try{' +
           'var SELS=' + JSON.stringify(stripSels) + ';' +
           'function nuke(){try{document.querySelectorAll(SELS).forEach(function(n){try{n.parentNode&&n.parentNode.removeChild(n);}catch(e){}});}catch(e){}}' +
-          'function fixFrame(f){try{var s=f.getAttribute("src");if(!s||/^(?:about:|data:|blob:|javascript:|#)/.test(s))return;if(f._vnlFixed)return;f._vnlFixed=true;var u;try{u=new URL(s,document.baseURI||location.href).href;}catch(e){return;}fetch(u).then(function(r){return r.ok?r.text():null;}).then(function(h){if(h==null)return;try{f.removeAttribute("src");f.srcdoc=h;}catch(e){}}).catch(function(){});}catch(e){}}' +
+          'function fixFrame(f){try{var s=f.getAttribute("src");if(!s||/^(?:about:|data:|blob:|javascript:|#)/.test(s))return;if(f._vnlFixed)return;f._vnlFixed=true;var u;try{u=new URL(s,document.baseURI||location.href).href;}catch(e){return;}var d=u.replace(/[?#].*$/,"").replace(/[^/]*$/,"");fetch(u).then(function(r){return r.ok?r.text():null;}).then(function(h){if(h==null)return;try{if(!/<base[\\s>]/i.test(h)){var b="<base href=\\""+d+"\\">";if(/<head[^>]*>/i.test(h))h=h.replace(/<head([^>]*)>/i,"<head$1>"+b);else h=b+h;}f.removeAttribute("src");f.srcdoc=h;}catch(e){}}).catch(function(){});}catch(e){}}' +
           'function fixAllFrames(){try{document.querySelectorAll("iframe[src]").forEach(fixFrame);}catch(e){}}' +
           'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2|adinplay\\.com|adsby|adnxs|amazon-adsystem|criteo|outbrain|taboola|mochiads\\.com|mochibot\\.com|mochi\\.com|mochimedia/i;' +
           'function isBad(u){try{return BAD.test(String(u||""));}catch(e){return false;}}' +
@@ -419,10 +424,10 @@
         if (/<!doctype[^>]*>/i.test(h)) return h.replace(/<!doctype[^>]*>/i, function (m) { return m + '<html><head>' + content + '</head>'; });
         return '<!doctype html><html><head>' + content + '</head>' + h;
       }
-      html = injectIntoHead(html, combined);
-      iframe.removeAttribute('src');
-      iframe.srcdoc = html;
+      try { html = injectIntoHead(html, combined); } catch (e) {}
       iframe.onload = function () { if (loading) loading.classList.add('hidden'); };
+      iframe.removeAttribute('src');
+      try { iframe.srcdoc = html; } catch (e) { iframe.srcdoc = ''; showError('iframe set failed: ' + e.message); }
       setTimeout(function () { if (loading) loading.classList.add('hidden'); }, 8000);
     } catch (e) {
       if (loading) loading.classList.add('hidden');
