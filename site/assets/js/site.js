@@ -355,7 +355,7 @@
         if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + baseTag);
         else html = baseTag + html;
       }
-      var inject = '<style id="vn-strip">' +
+      var stripSels =
         'button[aria-label*="ullscreen" i],button[title*="ullscreen" i],' +
         'button.fullscreen,button.fullscreen-btn,button.fs-btn,button.fullscreenBtn,' +
         'button.fullscreenButton,button.fullscreen-button,button.fullscreen-toggle,' +
@@ -366,16 +366,31 @@
         '#dialog-wrapper,#dialog_wrapper,#sound-on-confirmation-dialog,' +
         '#close_confirmation_dialog,#close-confirmation-dialog,' +
         '#reward_close_button_widget,#reward-close-button-widget,' +
-        '#ad_position_box,#ad-position-box,#ad_iframe_container,' +
+        '#ad_position_box,#ad-position-box,#ad_iframe_container,#card,#creative,' +
         '#count_down_container,#count-down-container,' +
         '#close_video_button,#resume_video_button,' +
         '#cancel-video-button,#continue-video-button,' +
-        '[id^="google_ads_iframe"],[class*="GoogleActiveView"],' +
-        '#aswift_0,#aswift_1,#aswift_2,#aswift_3,#aswift_4,#aswift_5,' +
-        'ins.adsbygoogle,div[data-ad-slot],div[data-magicword],' +
-        '.skip-button,.ad-overlay,.ad-container,.ad-banner,#ad-container,#ad-banner' +
-        '{display:none !important;visibility:hidden !important;pointer-events:none !important;}' +
-        '</style>';
+        'iframe[id="ad_iframe"],iframe[name="ad_iframe"],' +
+        'iframe[id^="ad_"],iframe[name^="google_ads"],' +
+        '[id^="google_ads_iframe"],[id^="aswift_"],[class*="GoogleActiveView"],' +
+        '[data-google-av-cxn],[data-google-av-adk],[data-ad-slot],[data-ad-client],' +
+        '[data-magicword],[data-jc],' +
+        'ins.adsbygoogle,.adsbygoogle,' +
+        '.skip-button,.ad-overlay,.ad-container,.ad-banner,#ad-container,#ad-banner,' +
+        '[id*="advert" i],[id*="adsense" i],[class*="adsense" i],' +
+        'div[id^="ad-"],div[class^="ad-"],div[id*="-ad-"]';
+      var stripJs =
+        '<script>(function(){try{' +
+          'var SELS=' + JSON.stringify(stripSels) + ';' +
+          'function nuke(){try{document.querySelectorAll(SELS).forEach(function(n){try{n.parentNode&&n.parentNode.removeChild(n);}catch(e){}});}catch(e){}}' +
+          'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2/i;' +
+          'var op=Element.prototype.appendChild;Element.prototype.appendChild=function(c){try{if(c&&c.tagName==="SCRIPT"&&c.src&&BAD.test(c.src))return c;if(c&&c.tagName==="IFRAME"&&c.src&&BAD.test(c.src))return c;}catch(e){}return op.call(this,c);};' +
+          'var oi=Element.prototype.insertBefore;Element.prototype.insertBefore=function(c,r){try{if(c&&c.tagName==="SCRIPT"&&c.src&&BAD.test(c.src))return c;if(c&&c.tagName==="IFRAME"&&c.src&&BAD.test(c.src))return c;}catch(e){}return oi.call(this,c,r);};' +
+          'nuke();' +
+          'if(window.MutationObserver){try{new MutationObserver(nuke).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}}' +
+          'setInterval(nuke,1500);' +
+        '}catch(e){}})();<\/script>';
+      var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
       var needsRealUrl = /createUnityInstance|UnityLoader\.|\.framework\.js|\.unityweb|new URL\([^)]*document\.(?:URL|location)|new Worker\(/i.test(html);
