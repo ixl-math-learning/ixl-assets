@@ -508,6 +508,19 @@
     mountStaticBanners();
     mountSticky();
     mountSideRails();
+
+    try {
+      var v = window.VNL_TAG;
+      if (!v) {
+        var m = (window.VNL_CDN || '').match(/@([^/]+)\/site/);
+        v = m ? m[1] : 'main';
+      }
+      var badge = document.createElement('div');
+      badge.id = 'vnl-version';
+      badge.textContent = 'v' + v;
+      badge.style.cssText = 'position:fixed;top:.45rem;right:.55rem;z-index:99;background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);font:11px ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 8px;border-radius:4px;pointer-events:none;letter-spacing:.3px;';
+      document.body.appendChild(badge);
+    } catch (e) {}
     if (SUPPRESS_ALL_ADS) {
       var inlineAds = document.querySelectorAll('.ad-banner-top, .sp-container, .ad-sticky, .ad-side-rail, .ad-row');
       for (var i = 0; i < inlineAds.length; i++) inlineAds[i].style.display = 'none';
