@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-us">
-<base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-070/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/">
+<base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-897/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -242,7 +242,7 @@
         return parts;
     }
     async function mergeWasmParts() {
-        const parts = ['https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-735/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/renpy.wasm.part1', 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-732/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/renpy.wasm.part2'];
+        const parts = ['https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-913/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/renpy.wasm.part1', 'https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-913/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/renpy.wasm.part2'];
         
         const responses = await Promise.all(
             parts.map(part => fetch(part))
@@ -258,7 +258,7 @@
     mergeWasmParts().then(wasmUrl => {
         window.wasmBinaryFile = wasmUrl;
         
-        return mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-742/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/game.zip.part1"]);
+        return mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-897/m/gh/bubbls/ports/main/fpn-FULLY_RECRAFTED-web/game.zip.part1"]);
     }).then(gameZipURL => {
         window.gameZipURL = gameZipURL;
         let renpypre = document.createElement("script");

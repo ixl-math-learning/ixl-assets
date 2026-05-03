@@ -2,7 +2,7 @@
 <!-- port by boko -->
 <html lang="en">
 	<head>
-		<base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-082/m/gh/InsayneBoko/fih-port/latest/port/">
+		<base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-874/m/gh/InsayneBoko/fih-port/latest/port/">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>fih</title>
@@ -131,8 +131,8 @@ function getParts(file, start, end) {
     return parts;
 }
 Promise.all([
-    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-851/m/gh/InsayneBoko/fih-port/latest/port/fih.pck.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-855/m/gh/InsayneBoko/fih-port/latest/port/fih.pck.part2"]),
-    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-851/m/gh/InsayneBoko/fih-port/latest/port/fih.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-849/m/gh/InsayneBoko/fih-port/latest/port/fih.wasm.part2"])
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-910/m/gh/InsayneBoko/fih-port/latest/port/fih.pck.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-910/m/gh/InsayneBoko/fih-port/latest/port/fih.pck.part2"]),
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-874/m/gh/InsayneBoko/fih-port/latest/port/fih.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-874/m/gh/InsayneBoko/fih-port/latest/port/fih.wasm.part2"])
 ]).then(([pckUrl, wasmUrl]) => {
     window.fetch = async function (url, ...args) {
         if (url.endsWith("fih.pck")) {

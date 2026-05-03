@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-036/m/gh/genizy/google-class/main/bart-blast/">
+		<base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-859/m/gh/genizy/google-class/main/bart-blast/">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>BART BLAST (INDEV VERSION)</title>
@@ -187,8 +187,8 @@ body {
       return parts;
     }
 Promise.all([
-    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-734/m/gh/genizy/google-class/main/bart-blast/index.pck.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-736/m/gh/genizy/google-class/main/bart-blast/index.pck.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-734/m/gh/genizy/google-class/main/bart-blast/index.pck.part3"]),
-    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-735/m/gh/genizy/google-class/main/bart-blast/index.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-746/m/gh/genizy/google-class/main/bart-blast/index.wasm.part2"]),
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-859/m/gh/genizy/google-class/main/bart-blast/index.pck.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-859/m/gh/genizy/google-class/main/bart-blast/index.pck.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-871/m/gh/genizy/google-class/main/bart-blast/index.pck.part3"]),
+    mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-877/m/gh/genizy/google-class/main/bart-blast/index.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-877/m/gh/genizy/google-class/main/bart-blast/index.wasm.part2"]),
 ]).then(([pckUrl, wasmUrl]) => {
     window.fetch = async function (url, ...args) {
         if (url.endsWith("index.pck")) {

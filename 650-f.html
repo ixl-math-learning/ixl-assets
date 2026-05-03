@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-032/m/gh/web-ports/milk-bag-games/main/inside/">
+  <base href="https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-842/m/gh/web-ports/milk-bag-games/main/inside/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>PMKM</title>
@@ -189,7 +189,7 @@
     <div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING... </div>
     <script>
         let loadingtext = document.getElementById("loading-text");
-        const changelater = "https://raw.githubusercontent.com/web-ports/milk-bag-games/refs/heads/main/inside/renpy.wasm";
+        const changelater = "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-911/m/gh/web-ports/milk-bag-games/main/inside/renpy.wasm";
         const originalFetch = window.fetch;
         window.fetch = async function(input, init) {
             let url = input;
@@ -241,7 +241,7 @@
             loadingtext.textContent = "LOADING... (" + doneparts + "/" + maxparts + ")";
             return parts;
         }
-        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-626/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-625/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-627/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-627/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-628/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-628/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-626/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part7"]).then(async url => {
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-842/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-842/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-843/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part3", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-843/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part4", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-844/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part5", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-844/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part6", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-875/m/gh/web-ports/milk-bag-games/main/inside/game.zip.part7"]).then(async url => {
             window.gameZipURL = url;
             let renpypre = document.createElement("script");
             renpypre.src = "renpy-pre.js"

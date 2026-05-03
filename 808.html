@@ -80,8 +80,8 @@ var loadingText = document.querySelector("#loading-text");
     }
     (async () => {
       const [dataUrl, wasmUrl] = await Promise.all([
-        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-888/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-889/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-888/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.data.part3"], "sfsim.data"),
-        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-889/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-890/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-888/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.wasm.part3"], "sfsim.wasm"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-674/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.data.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-674/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.data.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-674/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.data.part3"], "sfsim.data"),
+        mergeFiles(["https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-861/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.wasm.part1", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-861/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.wasm.part2", "https://cdn.jsdelivr.net/gh/ixl-math-learning/ixl-mirror-870/m/gh/web-ports/spaceflight-simulator/main/Build/sfsim.wasm.part3"], "sfsim.wasm"),
       ]);
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
