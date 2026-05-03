@@ -378,7 +378,8 @@
         'ins.adsbygoogle,.adsbygoogle,' +
         '.skip-button,.ad-overlay,.ad-container,.ad-banner,#ad-container,#ad-banner,' +
         '[id*="advert" i],[id*="adsense" i],[class*="adsense" i],' +
-        'div[id^="ad-"],div[class^="ad-"],div[id*="-ad-"]';
+        'div[id^="ad-"],div[class^="ad-"],div[id*="-ad-"],' +
+        '.VLoccc,.K5Zlne,.QDWEj,.U8eYrb';
       var stripJs =
         '<script>(function(){try{' +
           'var SELS=' + JSON.stringify(stripSels) + ';' +
@@ -393,7 +394,7 @@
       var inject = '<style id="vn-strip">' + stripSels + '{display:none !important;visibility:hidden !important;pointer-events:none !important;width:0 !important;height:0 !important;}</style>' + stripJs;
       if (/<head[^>]*>/i.test(html)) html = html.replace(/<head([^>]*)>/i, '<head$1>' + inject);
       else html = inject + html;
-      var needsRealUrl = /createUnityInstance|UnityLoader\.|\.framework\.js|\.unityweb|new URL\([^)]*document\.(?:URL|location)|new Worker\(/i.test(html);
+      var needsRealUrl = /createUnityInstance|UnityLoader|\.framework\.js|\.unityweb|\.loader\.js|Module\["streaming|streamingAssetsUrl|new URL\([^)]*document\.(?:URL|location|baseURI)|new Worker\(|new SharedWorker\(|importScripts\(|Build\/[^"']+\.js/i.test(html);
       iframe.removeAttribute('srcdoc');
       iframe.removeAttribute('src');
       if (needsRealUrl) {
