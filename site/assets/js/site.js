@@ -384,9 +384,13 @@
         '<script>(function(){try{' +
           'var SELS=' + JSON.stringify(stripSels) + ';' +
           'function nuke(){try{document.querySelectorAll(SELS).forEach(function(n){try{n.parentNode&&n.parentNode.removeChild(n);}catch(e){}});}catch(e){}}' +
-          'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2/i;' +
-          'var op=Element.prototype.appendChild;Element.prototype.appendChild=function(c){try{if(c&&c.tagName==="SCRIPT"&&c.src&&BAD.test(c.src))return c;if(c&&c.tagName==="IFRAME"&&c.src&&BAD.test(c.src))return c;}catch(e){}return op.call(this,c);};' +
-          'var oi=Element.prototype.insertBefore;Element.prototype.insertBefore=function(c,r){try{if(c&&c.tagName==="SCRIPT"&&c.src&&BAD.test(c.src))return c;if(c&&c.tagName==="IFRAME"&&c.src&&BAD.test(c.src))return c;}catch(e){}return oi.call(this,c,r);};' +
+          'var BAD=/googlesyndication\\.com|doubleclick\\.net|googleads\\.g\\.doubleclick|google-analytics\\.com|googletagmanager\\.com|adservice\\.google|adsbygoogle|pagead2|adinplay\\.com|adsby|adnxs|amazon-adsystem|criteo|outbrain|taboola/i;' +
+          'function isBad(u){try{return BAD.test(String(u||""));}catch(e){return false;}}' +
+          'var op=Element.prototype.appendChild;Element.prototype.appendChild=function(c){try{if(c&&(c.tagName==="SCRIPT"||c.tagName==="IFRAME")&&c.src&&isBad(c.src))return c;}catch(e){}return op.call(this,c);};' +
+          'var oi=Element.prototype.insertBefore;Element.prototype.insertBefore=function(c,r){try{if(c&&(c.tagName==="SCRIPT"||c.tagName==="IFRAME")&&c.src&&isBad(c.src))return c;}catch(e){}return oi.call(this,c,r);};' +
+          'try{var sa=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){try{if((n==="src"||n==="href")&&isBad(v)){return;}}catch(e){}return sa.call(this,n,v);};}catch(e){}' +
+          'try{var XO=window.XMLHttpRequest&&window.XMLHttpRequest.prototype.open;if(XO){window.XMLHttpRequest.prototype.open=function(m,u){if(isBad(u)){this._vnl_blocked=true;return XO.call(this,m,"about:blank");}return XO.apply(this,arguments);};}}catch(e){}' +
+          'try{var OF=window.fetch;if(OF){window.fetch=function(req,init){var u=req&&req.url||req;if(isBad(u))return Promise.reject(new Error("blocked"));return OF.apply(this,arguments);};}}catch(e){}' +
           'nuke();' +
           'if(window.MutationObserver){try{new MutationObserver(nuke).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}}' +
           'setInterval(nuke,1500);' +
